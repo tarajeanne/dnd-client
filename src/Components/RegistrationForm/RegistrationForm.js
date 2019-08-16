@@ -10,6 +10,7 @@ class RegistrationForm extends Component {
   state = { error: null };
 
   handleSubmit = (ev) => {
+    console.log('registration submitted!!');
     ev.preventDefault();
     const { username, password } = ev.target;
 
@@ -19,9 +20,10 @@ class RegistrationForm extends Component {
       password: password.value,
     })
       .then((user) => {
+        console.log('is anybody there');
         username.value = '';
         password.value = '';
-        this.props.onRegistrationSuccess();
+        this.props.onRegistrationSuccess(user);
       })
       .catch((res) => {
         this.setState({ error: res.error });
@@ -35,7 +37,7 @@ class RegistrationForm extends Component {
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="username">
           <label htmlFor="RegistrationForm__username">
-            User name <Required />
+            Username:  <Required />
           </label>
           <Input
             name="username"
@@ -46,7 +48,7 @@ class RegistrationForm extends Component {
         </div>
         <div className="password">
           <label htmlFor="RegistrationForm__password">
-            Password <Required />
+            Password:  <Required />
           </label>
           <Input
             name="password"

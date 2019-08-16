@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import RegistrationForm from '../Components/RegistrationForm/RegistrationForm'
+import {Redirect} from 'react-router-dom';
 
 export default class RegistrationPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null
+    }
+  }
   static defaultProps = {
     history: {
       push: () => {},
@@ -9,11 +16,17 @@ export default class RegistrationPage extends Component {
   }
 
   handleRegistrationSuccess = user => {
-    const { history } = this.props
-    history.push('/login')
+    console.log('registration successful!');
+    this.setState({
+      redirectTo: '/'
+    })
   }
 
   render() {
+    console.log('just a console');
+    if(this.state.redirectTo) {
+      return <Redirect to="/" />
+    }
     return (
       <div>
         <h2>Register</h2>

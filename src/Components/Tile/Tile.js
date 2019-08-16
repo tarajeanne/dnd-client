@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import CharacterContext from '../../contexts/CharacterContext';
 import './Tile.css';

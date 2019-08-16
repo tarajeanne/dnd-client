@@ -28,7 +28,7 @@ class Header extends React.Component {
   render() {
     return (
       <>
-        {TokenService.hasAuthToken() ? this.renderUserLinks() : <></>}
+        {this.props.hasAuthToken ? this.renderUserLinks() : <></>}
         <div className="Header">
           <header className="hero">
             <h1>DnD Character Creator</h1>

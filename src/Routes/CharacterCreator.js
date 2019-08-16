@@ -6,7 +6,6 @@ import { Route } from 'react-router-dom';
 import TileScreen from '../Components/TileScreen/TileScreen';
 import StatsScreen from '../Components/StatScreen/StatsScreen';
 import CharacterSheet from '../Components/CharacterSheet/CharacterSheet';
-import Equipment from '../Components/Equipment/Equipment';
 
 class CharacterCreator extends React.Component {
   constructor(props) {
@@ -83,16 +82,6 @@ class CharacterCreator extends React.Component {
             </>
           )}
         />
-        {/* <Route
-          exact
-          path={`${this.props.match.url}/equipment`}
-          render={(routeProps) => (
-            <>
-              <NavBar {...routeProps} />
-              <Equipment {...routeProps} />
-            </>
-          )}
-        /> */}
         <Route
           exact
           path={`${this.props.match.url}/charactersheet`}
