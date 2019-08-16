@@ -18,14 +18,12 @@ class EquipmentChoice extends React.Component {
   }
 
   handleEquipmentChange = (event, index) => {
-    console.log('handling an equipment change!!');
     CharacterApiService.updateVariableStats(
       this.props.id,
       'equipment',
       event.target.value,
       index
     ).then((character) => {
-      console.log(character);
       this.context.setCharacter(character);
       this.setState({ character });
     });

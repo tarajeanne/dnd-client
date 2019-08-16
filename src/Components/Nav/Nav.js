@@ -44,7 +44,6 @@ class NavBar extends React.Component {
   static contextType = CharacterContext;
 
   componentDidMount(){
-    console.log(this.props.match);
     this.setState({
       name: this.context.character.name
     })

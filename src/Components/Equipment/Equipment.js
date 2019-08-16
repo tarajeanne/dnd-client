@@ -22,7 +22,6 @@ class Equipment extends React.Component {
 
   renderAllWeapons = () => {
     const allWeapons = this.context.character.weapons.map((weapon) => {
-      console.log('weapon', weapon, 'weapon.name', weapon.name);
       if (weapon.name) {
         return (
           <tr>
@@ -76,7 +75,6 @@ class Equipment extends React.Component {
   };
 
   render() {
-    console.log('re-rending page!'
     );
     const allWeapons = this.renderAllWeapons();
     const allArmor = this.renderAllArmor();

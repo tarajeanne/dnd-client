@@ -25,7 +25,6 @@ class WeaponsChoice extends React.Component {
   }
 
   onWeaponChange = (e, index, indexString, weaponName) => {
-    console.log(e);
     CharacterApiService.updateVariableStats(
       this.props.id,
       'weapon',

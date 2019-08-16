@@ -56,7 +56,6 @@ class UserPage extends React.Component {
 
   handleNewCharacter = (event) => {
     event.preventDefault();
-    console.log('value', this.state.value);
     return CharacterApiService.postCharacter(this.state.value).then(
       (character) => {
         this.setState({

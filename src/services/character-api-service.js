@@ -47,7 +47,6 @@ const CharacterApiService =  {
   },
 
   updateCharacter(id, endpoint, newData) {
-    console.log(id, endpoint, newData);
     return fetch(`${config.API_ENDPOINT}characters/${id}/${endpoint}`, {
       method: 'PATCH',
       headers: {
@@ -83,7 +82,6 @@ const CharacterApiService =  {
   },
 
   updateVariableStats(id, endpoint, name, index) {
-    console.log('id', id, 'endpoint', endpoint, 'name', name, 'index', index);
     return fetch(`${config.API_ENDPOINT}characters/${id}/${endpoint}`, {
       method: 'PATCH',
       headers: {
