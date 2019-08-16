@@ -1,0 +1,74 @@
+*{
+  box-sizing: border-box;
+}
+
+.Header {
+  height: 120px;
+  max-width: 1050px;
+  padding: 0 15px;
+  margin: 50px auto 0;
+  background-image: url("https://ih0.redbubble.net/image.214383515.3210/flat,800x800,075,f.jpg");
+  background-position: 97% 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+.hero {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+ 
+}
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0px; 
+}
+
+.sub {
+  margin-top: 5px;
+  font-family:'Montserrat', sans-serif;
+}
+
+.header-image {
+  height: 115px;
+  float: right;
+}
+
+.user-controls {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #7A6263;
+  color: #Dff2d8;
+  height: 40px;
+  text-align: right;
+  font-family:'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-links {
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  list-style: none;
+}
+
+.user-link {
+  display: inline;
+  margin-right: 0 5px;
+}
+
+.user_link:not(:first-child):before{
+  content: '    |    ';
+}
+
+li > a:link, li > a:visited {
+  color: #Dff2d8;
+}
+
+li > a:hover {
+  color: #C6DEA6;
+}

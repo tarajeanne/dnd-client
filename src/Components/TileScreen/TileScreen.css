@@ -1,0 +1,12 @@
+*{
+  box-sizing: border-box;
+}
+
+.tile-area {
+  display: flex;
+  margin: auto;
+  flex-flow: row wrap;
+  padding: 8px;
+  justify-content: center;
+  max-width: 1000px;
+}

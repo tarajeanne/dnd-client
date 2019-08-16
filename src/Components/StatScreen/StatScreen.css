@@ -1,0 +1,43 @@
+.bodyarea {
+  max-width: 1000px;
+  margin: auto;
+  padding: 8px;
+}
+
+th {
+  font-family: 'Raleway', sans-serif;
+}
+
+td {
+  font-family:'Montserrat', sans-serif;
+}
+
+label {
+  font-family:'Montserrat', sans-serif;
+}
+
+table {
+  width: 80%;
+  margin: 15px auto;
+}
+
+.firstrow {
+  margin-bottom: 5px;
+}
+
+.error {
+  color: #8D3B72;
+  font-weight: bold;
+}
+
+label {
+  margin-right: 4px;
+}
+
+select {
+  margin-right: 10px;
+}
+
+.depends_on {
+  font-weight: bold;
+}

@@ -1,0 +1,57 @@
+*{
+  box-sizing: border-box;
+}
+
+a {
+color: #7EBDC3;
+}
+
+nav {
+  font-family:'Montserrat', sans-serif;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.alert {
+  color: #8D3B72 !important;
+}
+.character-creator-header {
+  max-width: 1000px;
+  margin: auto;
+  padding: 8px; 
+}
+
+.nav-area {
+  margin: auto;
+  width: 400px;
+  text-align: center;
+
+}
+
+.nav-menu {
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+}
+
+.nav-menu > a {
+  margin: 0 3px;
+}
+
+.nextback {
+  text-align: center;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@media print {
+  .nav, .nav *{
+     display: none !important;
+    }
+  } 
