@@ -1,5 +1,3 @@
-import config from '../config';
-
 const TokenService = {
   saveAuthToken(token, username) {
     window.localStorage.setItem('username', username);
