@@ -1,8 +1,8 @@
-DND Character Creator
+# DND Character Creator
 
 Live app: https://dnd-creator.tjeannepatel.now.sh/
 
-##API
+## API
 
 Data endpoints:
 The data endpoints of the DnD API provide a detailed databse of available options in Dungeons and Dragons. They contain most of the significant data found in the core rulebook, but are formatted in objects and arrays that can be navigated effectively by an application. I rewrote descriptions to be shorter and more applicable to small spaces.
@@ -15,7 +15,7 @@ GET /api/backgrounds provides an array of backgrounds and their relevant data. C
 
 GET /api/weapon and GET /api/armor provides an array of all the weapons and armor and their relevant data.
 
-##Summary
+## Summary
 
 The DnD Creator app is designed to help newcomers to Dungeons and Dragons navigate the complicated and laborious character creation process. 
 
@@ -33,3 +33,7 @@ The ability selection screen allows users to select specific abilities for their
 
 
 The character sheet screen auto-populates a Dungeons and Dragons character sheet for the user, which they can then print out to use during gameplay.
+
+## Technology
+
+The Dungeons and Dragons Character Creator utilitzes React for the front-end, Express, node.js, and postgres for the back-end. For security, it uses JWT auth tokens and bcrypt for encrypting user data. Additionally, it uses Enzyme, Mocha, and Chai for testing.
