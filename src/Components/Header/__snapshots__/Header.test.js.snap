@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders as expected 1`] = `
+<Fragment>
+  <div
+    className="Header"
+  >
+    <header
+      className="hero"
+    >
+      <h1>
+        DnD Character Creator
+      </h1>
+      <p
+        className="sub"
+      >
+        for Absolute Beginners
+      </p>
+    </header>
+  </div>
+</Fragment>
+`;

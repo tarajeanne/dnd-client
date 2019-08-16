@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile renders as expected 1`] = `
+<div
+  className="option-tile"
+  onClick={[Function]}
+>
+  <header>
+    <h2>
+      Dwarf
+    </h2>
+  </header>
+  <p
+    className="option-description"
+  >
+    Proud warriors and miners from the mountains who value culture and tradition.
+  </p>
+</div>
+`;

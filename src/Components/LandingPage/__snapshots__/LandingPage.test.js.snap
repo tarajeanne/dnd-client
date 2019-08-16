@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage renders as expected 1`] = `
+<section>
+  <header>
+    Welcome to the Dungeons and Dragons character creator for true beginners!
+  </header>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      for="name-input"
+    >
+      Please enter a name for your character:
+    </label>
+    <input
+      id="name-input"
+      name="name-input"
+      onChange={[Function]}
+      placeholder="Sabrill of Savernke"
+      type="text"
+      value=""
+    />
+  </form>
+</section>
+`;

@@ -10,7 +10,6 @@ class RegistrationForm extends Component {
   state = { error: null };
 
   handleSubmit = (ev) => {
-    console.log('registration submitted!!');
     ev.preventDefault();
     const { username, password } = ev.target;
 
@@ -20,7 +19,6 @@ class RegistrationForm extends Component {
       password: password.value,
     })
       .then((user) => {
-        console.log('is anybody there');
         username.value = '';
         password.value = '';
         this.props.onRegistrationSuccess(user);

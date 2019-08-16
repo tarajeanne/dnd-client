@@ -25,7 +25,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('THE WHOLE APP RERENDERED!');
     return (
       <div>
         <header className="app-header">

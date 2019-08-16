@@ -90,6 +90,7 @@ class UserPage extends React.Component {
             type="text"
             placeholder="Sabrill of Savernke"
           />
+          <button type="submit">Create character!</button>
         </form>
       </div>
     );

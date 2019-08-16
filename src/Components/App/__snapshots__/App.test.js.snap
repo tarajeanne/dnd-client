@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders as expected 1`] = `
+<div>
+  <header
+    className="app-header"
+  />
+  <main
+    className="App_main"
+  >
+    <Switch>
+      <PublicOnlyRoute
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <PublicOnlyRoute
+        component={[Function]}
+        path="/register"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/user"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/character/:characterId"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </main>
+</div>
+`;

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationForm renders as expected 1`] = `
+<form
+  className="RegistrationForm"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="username"
+  >
+    <label
+      htmlFor="RegistrationForm__username"
+    >
+      Username:  
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm__username"
+      name="username"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="password"
+  >
+    <label
+      htmlFor="RegistrationForm__password"
+    >
+      Password:  
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm__password"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <Button
+    type="submit"
+  >
+    Register
+  </Button>
+</form>
+`;

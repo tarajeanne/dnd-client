@@ -63,9 +63,7 @@ class StatsScreen extends React.Component {
         </p>
         <p>
           You get a standard array of 15, 14, 13, 12, 10, 8. Distribute these
-          numbers among the 6 ability types. If you need help, click the
-          question mark beside the ability to see how that ability helps your
-          character.
+          numbers among the 6 ability types.
         </p>
         <p>
           After you've chosen these base scores, you can choose bonuses based on

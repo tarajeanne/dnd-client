@@ -16,14 +16,12 @@ export default class RegistrationPage extends Component {
   }
 
   handleRegistrationSuccess = user => {
-    console.log('registration successful!');
     this.setState({
       redirectTo: '/'
     })
   }
 
   render() {
-    console.log('just a console');
     if(this.state.redirectTo) {
       return <Redirect to="/" />
     }
