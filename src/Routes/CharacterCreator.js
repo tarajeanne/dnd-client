@@ -1,12 +1,11 @@
 import React from 'react';
 import CharacterContext from '../contexts/CharacterContext';
 import CharacterApiService from '../services/character-api-service';
-import NavBar from '../Components/Nav/Nav';
-import { Route, Switch } from 'react-router-dom';
+import CreatorNav from '../Components/CreatorNav/CreatorNav';
+import { Route } from 'react-router-dom';
 import TileScreen from '../Components/TileScreen/TileScreen';
 import StatsScreen from '../Components/StatScreen/StatsScreen';
 import CharacterSheet from '../Components/CharacterSheet/CharacterSheet';
-import NotFoundPage from '../Routes/NotFoundPage';
 
 class CharacterCreator extends React.Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/race`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <TileScreen {...routeProps} />
               </>
             )}
@@ -47,7 +46,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/class`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <TileScreen {...routeProps} />
               </>
             )}
@@ -57,7 +56,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/background`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <TileScreen {...routeProps} />
               </>
             )}
@@ -67,7 +66,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/stats`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <StatsScreen {...routeProps} />
               </>
             )}
@@ -77,7 +76,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/alignment`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <TileScreen {...routeProps} />
               </>
             )}
@@ -87,7 +86,7 @@ class CharacterCreator extends React.Component {
             path={`${this.props.match.url}/charactersheet`}
             render={(routeProps) => (
               <>
-                <NavBar {...routeProps} />
+                <CreatorNav {...routeProps} />
                 <CharacterSheet {...routeProps} />
               </>
             )}

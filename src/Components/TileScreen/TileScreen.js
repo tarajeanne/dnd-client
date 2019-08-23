@@ -3,6 +3,7 @@ import Tile from '../Tile/Tile';
 import CharacterApiService from '../../services/character-api-service';
 import CharacterContext from '../../contexts/CharacterContext';
 import './TileScreen.css';
+import PropTypes from 'prop-types';
 
 class TileScreen extends React.Component {
   constructor(props) {
@@ -11,6 +12,12 @@ class TileScreen extends React.Component {
       screen: this.props.match.path.split('/')[3],
       id: this.props.match.path.split('/')[2]
     };
+  }
+  
+  static propTypes = {
+    match: PropTypes.shape({
+      path: PropTypes.string
+    })
   }
 
   static contextType = CharacterContext;

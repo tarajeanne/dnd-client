@@ -16,7 +16,7 @@ exports[`LoginForm renders as expected 1`] = `
     >
       User name
     </label>
-    <Input
+    <input
       id="LoginForm__username"
       name="username"
       required={true}
@@ -30,17 +30,17 @@ exports[`LoginForm renders as expected 1`] = `
     >
       Password
     </label>
-    <Input
+    <input
       id="LoginForm__password"
       name="password"
       required={true}
       type="password"
     />
   </div>
-  <Button
+  <button
     type="submit"
   >
     Login
-  </Button>
+  </button>
 </form>
 `;

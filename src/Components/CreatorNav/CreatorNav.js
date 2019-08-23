@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import './Nav.css';
+import PropTypes from 'prop-types';
 import CharacterContext from '../../contexts/CharacterContext';
 import CharacterApiService from '../../services/character-api-service';
+import './CreatorNav.css';
 
-class NavBar extends React.Component {
+class CreatorNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +19,17 @@ class NavBar extends React.Component {
     };
   }
 
+  static propTypes = {
+    match: PropTypes.shape({
+      path: PropTypes.string
+    })
+  };
+
   handleNameClick = () => {
-    this.setState({ editingName: !this.state.editingName });
+    this.setState({
+      editingName: !this.state.editingName,
+      name: this.context.character.name
+    });
   };
 
   handleNameChange = (e) => {
@@ -43,15 +53,47 @@ class NavBar extends React.Component {
 
   static contextType = CharacterContext;
 
-  componentDidMount(){
-    this.setState({
-      name: this.context.character.name
-    })
-  }
+  renderNextBack = () => {
+    let allScreens = [
+      'race',
+      'class',
+      'background',
+      'stats',
+      'alignment',
+      'charactersheet'
+    ];
+    const screenIndex = allScreens.findIndex(
+      (screen) => this.state.screen === screen
+    );
+    const backScreen = allScreens[screenIndex - 1];
+    const nextScreen = allScreens[screenIndex + 1];
+    const nextback = (
+      <div>
+        {screenIndex !== 0 && (
+          <button>
+            <Link to={`${backScreen}`}>{'Back'}</Link>
+          </button>
+        )}
+        {screenIndex !== allScreens.length - 1 && (
+          <button>
+            <Link to={`${nextScreen}`}>Next</Link>
+          </button>
+        )}
+      </div>
+    );
+    return nextback;
+  };
 
-  render() {
+  renderNavLinks = () => {
     let charErrors = [];
-    let allScreens = ['race', 'class', 'background', 'stats', 'alignment', 'charactersheet'];
+    let allScreens = [
+      'race',
+      'class',
+      'background',
+      'stats',
+      'alignment',
+      'charactersheet'
+    ];
     if (!this.context.character.race) {
       charErrors.push('race');
     }
@@ -99,54 +141,43 @@ class NavBar extends React.Component {
       );
     });
 
-    const screenIndex = allScreens.findIndex(
-      (screen) => this.state.screen === screen
-    );
-    const backScreen = allScreens[screenIndex - 1];
-    const nextScreen = allScreens[screenIndex + 1];
-    const nextback = (
-      <div>
-        {(screenIndex !== 0) && (
-          <button>
-            <Link to={`${backScreen}`}>{'Back'}</Link>
-          </button>
-        )}
-        {screenIndex !== allScreens.length - 1 && (
-          <button>
-            <Link to={`${nextScreen}`}>Next</Link>
-          </button>
-        )}
-      </div>
-    );
+    return allNavLinks;
+  };
 
-    return (
-      <div>
-        <header className="character-creator-header">
-          {!this.state.editingName && (
-            <h2 onClick={() => this.handleNameClick()}>
-              {this.context.character.name}
-            </h2>
-          )}
-          {this.state.editingName && (
-            <form onSubmit={(e) => this.handleNameSubmit(e)}>
-              <input
-                type="text"
-                id="name"
-                onChange={(e) => this.handleNameChange(e)}
-                value={this.state.name}
-              />
-            </form>
-          )}
-          <h3>{this.state.screen[0].toUpperCase() + this.state.screen.slice(1)}</h3>
-        </header>
-        <nav className="nav-area">
-        <div className="nav-menu">{allNavLinks}</div>
-        <div className="nextback">{nextback}</div>
-      </nav>
-      </div>
-      
-    );
+  render() {
+    if (this.context.character) {
+      return (
+        <div>
+          <header className="character-creator-header">
+            {!this.state.editingName && (
+              <h2 onClick={() => this.handleNameClick()}>
+                {this.context.character.name}
+              </h2>
+            )}
+            {this.state.editingName && (
+              <form onSubmit={(e) => this.handleNameSubmit(e)}>
+                <input
+                  type="text"
+                  id="name"
+                  onChange={(e) => this.handleNameChange(e)}
+                  value={this.state.name}
+                />
+              </form>
+            )}
+            <h3>
+              {this.state.screen[0].toUpperCase() + this.state.screen.slice(1)}
+            </h3>
+          </header>
+          <nav className="nav-area">
+            <div className="nav-menu">{this.renderNavLinks()}</div>
+            <div className="nextback">{this.renderNextBack()}</div>
+          </nav>
+        </div>
+      );
+    } else {
+      return <></>;
+    }
   }
 }
 
-export default NavBar;
+export default CreatorNav;

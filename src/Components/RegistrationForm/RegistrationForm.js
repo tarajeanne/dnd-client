@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Input, Required } from '../../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
+import PropTypes from 'prop-types';
 
 class RegistrationForm extends Component {
+
+  static propTypes = {
+    onRegistrationSuccess: PropTypes.func
+  };
+  
   static defaultProps = {
     onRegistrationSuccess: () => {}
   };
@@ -35,9 +40,9 @@ class RegistrationForm extends Component {
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="username">
           <label htmlFor="RegistrationForm__username">
-            Username:  <Required />
+            Username:
           </label>
-          <Input
+          <input
             name="username"
             type="text"
             required
@@ -46,16 +51,16 @@ class RegistrationForm extends Component {
         </div>
         <div className="password">
           <label htmlFor="RegistrationForm__password">
-            Password:  <Required />
+            Password:
           </label>
-          <Input
+          <input
             name="password"
             type="password"
             required
             id="RegistrationForm__password"
           />
         </div>
-        <Button type="submit">Register</Button>
+        <button type="submit">Register</button>
       </form>
     );
   }

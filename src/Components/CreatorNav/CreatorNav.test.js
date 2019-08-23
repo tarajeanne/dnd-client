@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './Nav';
+import CreatorNav from './CreatorNav';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
@@ -170,7 +170,7 @@ describe('Nav', () => {
     const match = {
       path: 'http://localhost:3000/character/cjzc2ny7q0000fep28oy727gq/stats'
     };
-    const wrapper = shallow(<NavBar match={match} />, { context });
+    const wrapper = shallow(<CreatorNav match={match} />, { context });
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const CharacterContext = React.createContext({
-  character: null,
+  character: {},
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -12,7 +12,7 @@ export default CharacterContext;
 
 export class CharacterProvider extends React.Component {
   state = {
-    character: null,
+    character: {},
     error: null
   }
 

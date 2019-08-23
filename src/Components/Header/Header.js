@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import './Header.css';
 
 class Header extends React.Component {
+  static propTypes = {
+    hasAuthToken: PropTypes.bool
+  };
+  
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
   };

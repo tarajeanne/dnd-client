@@ -2,16 +2,22 @@
 import React from 'react';
 import CharacterContext from '../../contexts/CharacterContext';
 import './Tile.css';
+import PropTypes from 'prop-types';
 
 class Tile extends React.Component {
-  constructor(props){
-    super(props);
-    this.screen=this.props.screen;
+  static propTypes = {
+    item: PropTypes.shape({
+      name: PropTypes.string,
+      desc: PropTypes.string
+    }),
+    selected: PropTypes.bool
   }
+
   static contextType = CharacterContext;
   handleClick = () => {
     this.props.handleClick(this.props.item.name)
   }
+  
   render() {
     return (
       <div className={(this.props.selected == this.props.item.name) ? "option-tile selected" : "option-tile"} onClick={()=>{this.handleClick()}}>

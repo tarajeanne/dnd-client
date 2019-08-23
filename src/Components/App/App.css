@@ -1,5 +1,5 @@
 @media print {
-  .nav {
-     display: none;
-    }
-  } 
+  .Header, .user-controls, .character-creator-header, .nav-area {
+    display: none;
+  }
+}

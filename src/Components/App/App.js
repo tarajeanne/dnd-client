@@ -1,14 +1,15 @@
 import React from 'react';
-//import routes
+import { Route, Switch } from 'react-router-dom';
+
 import LandingPage from '../../Routes/LandingPage';
 import RegistrationPage from '../../Routes/RegistrationPage';
 import UserPage from '../../Routes/UserPage';
 import NotFoundPage from '../../Routes/NotFoundPage';
 import CharacterCreator from '../../Routes/CharacterCreator';
-import { Route, Switch } from 'react-router-dom';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import PrivateRoute from '../Utils/PrivateRoute';
+
 import './App.css';
-import PublicOnlyRoute from '../../Utils/PublicOnlyRoute';
-import PrivateRoute from '../../Utils/PrivateRoute';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,12 +18,6 @@ class App extends React.Component {
       error: null
     };
   }
-
-  changeScreen = (newScreen) => {
-    this.setState({
-      screen: newScreen
-    });
-  };
 
   render() {
     return (

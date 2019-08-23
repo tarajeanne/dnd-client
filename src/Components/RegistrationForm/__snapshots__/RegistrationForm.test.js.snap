@@ -14,10 +14,9 @@ exports[`RegistrationForm renders as expected 1`] = `
     <label
       htmlFor="RegistrationForm__username"
     >
-      Username:  
-      <Required />
+      Username:
     </label>
-    <Input
+    <input
       id="RegistrationForm__username"
       name="username"
       required={true}
@@ -30,20 +29,19 @@ exports[`RegistrationForm renders as expected 1`] = `
     <label
       htmlFor="RegistrationForm__password"
     >
-      Password:  
-      <Required />
+      Password:
     </label>
-    <Input
+    <input
       id="RegistrationForm__password"
       name="password"
       required={true}
       type="password"
     />
   </div>
-  <Button
+  <button
     type="submit"
   >
     Register
-  </Button>
+  </button>
 </form>
 `;

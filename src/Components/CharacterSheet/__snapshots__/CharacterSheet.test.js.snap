@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterSheet renders as expected 1`] = `<Fragment />`;
+
+exports[`CharacterSheet renders numbers for character data 1`] = `<Fragment />`;

@@ -154,6 +154,65 @@ span {
   text-align: center;
 }
 
+.profs_langs {
+  position: absolute;
+  width: 236px;
+  height: 226px;
+  top: 790px;
+  left: 38px;
+  padding: 1px;
+  background-color: white;
+}
+
+.other-prof, .language {
+  font-size: 12px;
+}
+
+.language {
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  font-family:'Montserrat', sans-serif;
+}
+
+.other-prof {
+  margin-bottom: 4px;
+  margin-top: 0px;
+}
+
+.language-list {
+  list-style: none;
+  display: inline;
+  margin-left: 37px;
+  margin-bottom: 6px;
+}
+
+.language-title {
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 0px;
+
+}
+
+.skills-feats {
+  position: absolute;
+  top: 577px;
+  left: 297px;
+  width: 478px;
+  height: 175px;
+  background-color: white;
+}
+
+.feat {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+#vision {
+  top: 297px;
+  left: 697px;
+}
 
 
 /* @media print {

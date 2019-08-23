@@ -3,6 +3,7 @@ import StatItem from '../StatItem/StatItem';
 import CharacterApiService from '../../services/character-api-service';
 import CharacterContext from '../../contexts/CharacterContext';
 import './StatScreen.css';
+import PropTypes from 'prop-types';
 
 class StatsScreen extends React.Component {
   constructor(props) {
@@ -12,6 +13,13 @@ class StatsScreen extends React.Component {
       screen: this.props.match.path.split('/')[3],
     };
   }
+
+  static propTypes = {
+    match: PropTypes.shape({
+      path: PropTypes.string
+    })
+  };
+  
   static contextType = CharacterContext;
 
   componentDidMount() {

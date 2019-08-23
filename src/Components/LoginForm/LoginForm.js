@@ -1,12 +1,16 @@
 import React from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
-import { Button, Input } from '../../Utils/Utils';
+import PropTypes from 'prop-types';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {error: null};
+  }
+
+  static propTypes = {
+    onLoginSuccess: PropTypes.func
   }
 
   static defaultProps = {
@@ -41,18 +45,18 @@ class LoginForm extends React.Component {
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="username">
           <label htmlFor="LoginForm__username">User name</label>
-          <Input required name="username" id="LoginForm__username" />
+          <input required name="username" id="LoginForm__username" />
         </div>
         <div className="password">
           <label htmlFor="LoginForm__password">Password</label>
-          <Input
+          <input
             required
             name="password"
             type="password"
             id="LoginForm__password"
           />
         </div>
-        <Button type="submit">Login</Button>
+        <button type="submit">Login</button>
       </form>
     );
   }
