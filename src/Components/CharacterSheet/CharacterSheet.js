@@ -19,20 +19,30 @@ class CharacterSheet extends React.Component {
           </li>
         )
       );
-      const languages = this.context.character.languages.map((language, index) =>
-        index < this.context.character.languages.length - 1 ? (
-          <li className="language">{language.name}, </li>
-        ) : (
-          <li className="language">{language.name}</li>
-        )
+      const languages = this.context.character.languages.map(
+        (language, index) =>
+          index < this.context.character.languages.length - 1 ? (
+            <li className="language">{language.name}, </li>
+          ) : (
+            <li className="language">{language.name}</li>
+          )
       );
-  
-      const skillsFeats = this.context.character.skills_and_features.map(feat => {
-        if(feat.depends_on !== 'background' && feat.name !=='Darkvision'){
-          return <p className="feat">{feat.name}: {feat.desc}</p>
-        };
-      })
-  
+
+      const skillsFeats = this.context.character.skills_and_features.map(
+        (feat) => {
+          if (feat.depends_on !== 'background' && feat.name !== 'Darkvision') {
+            return (
+              <p className="feat">
+                {feat.name}: {feat.desc}
+              </p>
+            );
+          }
+          else {
+            return <></>
+          }
+        }
+      );
+
       const otherProfs = this.context.character.other_prof.map((prof) => {
         if (prof.name) {
           return (
@@ -41,10 +51,10 @@ class CharacterSheet extends React.Component {
             </p>
           );
         } else {
-          return <></>
+          return <></>;
         }
       });
-  
+
       return (
         <div className="background-image">
           <span id="name">{this.context.character.name}</span>
@@ -91,24 +101,21 @@ class CharacterSheet extends React.Component {
           <span id="prof_bonus">{this.context.character.prof_bonus}</span>
           <span id="max_hp">{this.context.character.hp}</span>
           <span id="speed">{this.context.character.speed}</span>
-          {this.context.character.other_prof.filter(prof=>prof.name==='Darkvision') && <span id="vision">Dark</span>}
+          {this.context.character.other_prof.filter(
+            (prof) => prof.name === 'Darkvision'
+          ) && <span id="vision">Dark</span>}
           <ul id="check_prof_list">{skill_list}</ul>
           <div className="profs_langs">
             <span className="language-title">Languages:</span>
             <ul className="language-list">{languages}</ul>
             {otherProfs}
           </div>
-          <div className="skills-feats">
-            {skillsFeats}
+          <div className="skills-feats">{skillsFeats}</div>
         </div>
-        </div>
-        
       );
+    } else {
+      return <></>;
     }
-    else {
-      return <></>
-    }
-
   }
 }
 
