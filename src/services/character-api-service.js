@@ -106,11 +106,16 @@ const CharacterApiService =  {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-    .then(res =>
-      (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
-      )
+    .then((res) =>{
+      
+      if (!res.ok){
+        throw new Error('Something went wrong, please try again.');
+      }
+      else {
+        return res;
+      }
+      
+    })
   }
 }
 export default CharacterApiService;

@@ -26,7 +26,7 @@ class CharacterCreator extends React.Component {
     );
   }
   render() {
-    if (!this.context.character) {
+    if (!this.context.character.name) {
       return <div>loading...</div>;
     }
     return (

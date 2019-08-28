@@ -29,7 +29,11 @@ class UserPage extends React.Component {
 
   handleDelete = (id) => {
     CharacterApiService.deleteCharacter(id).then((res) => {
-      this.setState({value: ''});
+      const characterInfo = this.state.characters.filter(character => character.id !== id)
+      this.setState({
+        value: '',
+        characters: characterInfo
+      });
     });
   };
 
@@ -79,7 +83,7 @@ class UserPage extends React.Component {
         {allCharacters}
         <h3>Make a new character:</h3>
         <form onSubmit={this.handleNewCharacter}>
-          <label for="name-input">
+          <label htmlFor="name-input">
             Please enter a name for your character:
           </label>
           <input
