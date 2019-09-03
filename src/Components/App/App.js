@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import AuthApiService from '../../services/auth-api-service';
+import IdleService from '../../services/idle-service';
 
 import LandingPage from '../../Routes/LandingPage';
 import RegistrationPage from '../../Routes/RegistrationPage';
@@ -17,6 +20,29 @@ class App extends React.Component {
     this.state = {
       error: null
     };
+  }
+
+  componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthApiService.postRefreshToken()
+      })
+    }
+  }
+
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpiry();
+  }
+
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets()
+    this.forceUpdate();
   }
 
   render() {

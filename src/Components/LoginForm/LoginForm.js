@@ -1,5 +1,4 @@
 import React from 'react';
-import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import PropTypes from 'prop-types';
 
@@ -27,7 +26,6 @@ class LoginForm extends React.Component {
       password: password.value
     })
     .then(res => {
-      TokenService.saveAuthToken(res.authToken, username.value);
       password.value = '';
       username.value = '';
       this.props.onLoginSuccess();
