@@ -38,9 +38,9 @@ class UserPage extends React.Component {
   };
 
   renderCharacters() {
-    return this.state.characters.map((character) => {
+    return this.state.characters.map((character, index) => {
       return (
-        <div className="characterTile">
+        <div key={index} className="characterTile">
           <Link to={`/character/${character.id}/charactersheet`}>
             <h3>{character.name}</h3>
             <p>

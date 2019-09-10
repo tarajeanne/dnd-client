@@ -10,8 +10,8 @@ class CharacterSheet extends React.Component {
         (prof) => prof.name
       );
       const skill_list = Object.keys(this.context.character.ability_checks).map(
-        (check) => (
-          <li className="skill_check">
+        (check, index) => (
+          <li key={index} className="skill_check">
             {skill_profs.includes(check) && (
               <span className="prof_dot">&#8226;</span>
             )}
@@ -22,31 +22,28 @@ class CharacterSheet extends React.Component {
       const languages = this.context.character.languages.map(
         (language, index) =>
           index < this.context.character.languages.length - 1 ? (
-            <li className="language">{language.name}, </li>
+            <li key={index} className="language">{language.name}, </li>
           ) : (
-            <li className="language">{language.name}</li>
+            <li key={index} className="language">{language.name}</li>
           )
       );
 
       const skillsFeats = this.context.character.skills_and_features.map(
-        (feat) => {
+        (feat, index) => {
           if (feat.depends_on !== 'background' && feat.name !== 'Darkvision') {
             return (
-              <p className="feat">
+              <p key={index} className="feat">
                 {feat.name}: {feat.desc}
               </p>
             );
           }
-          else {
-            return <></>
-          }
         }
       );
 
-      const otherProfs = this.context.character.other_prof.map((prof) => {
+      const otherProfs = this.context.character.other_prof.map((prof, index) => {
         if (prof.name) {
           return (
-            <p className="other-prof">
+            <p key={index} className="other-prof">
               {prof.name}: {prof.desc}
             </p>
           );
@@ -56,6 +53,10 @@ class CharacterSheet extends React.Component {
       });
 
       return (
+        <div>
+          <p className="instructions">
+            <em className="error">This page is optimized for use in Chrome.</em> To print your character sheet, right or command-click this page and select print. In the window that appears, click "more settings" and select the box called "background graphics." This ensures the background prints!
+          </p>
         <div className="background-image">
           <span id="name">{this.context.character.name}</span>
           <span id="levelandclass">{this.context.character.class}</span>
@@ -112,6 +113,8 @@ class CharacterSheet extends React.Component {
           </div>
           <div className="skills-feats">{skillsFeats}</div>
         </div>
+        </div>
+
       );
     } else {
       return <></>;

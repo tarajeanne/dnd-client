@@ -10,7 +10,7 @@ class StatsScreen extends React.Component {
     super(props);
     this.state = {
       id: this.props.match.path.split('/')[2],
-      screen: this.props.match.path.split('/')[3],
+      screen: this.props.match.path.split('/')[3]
     };
   }
 
@@ -19,7 +19,7 @@ class StatsScreen extends React.Component {
       path: PropTypes.string
     })
   };
-  
+
   static contextType = CharacterContext;
 
   componentDidMount() {
@@ -29,40 +29,91 @@ class StatsScreen extends React.Component {
   }
 
   handleAsiChange = (event, index) => {
-    
-    CharacterApiService.updateVariableStats(this.state.id, 'asi', event.target.value, index)
-      .then(character => {
-        this.context.setCharacter(character);
-        this.setState({character});
-      })
+    CharacterApiService.updateVariableStats(
+      this.state.id,
+      'asi',
+      event.target.value,
+      index
+    ).then((character) => {
+      this.context.setCharacter(character);
+      this.setState({ character });
+    });
   };
 
   handleBaseChange = (event) => {
-    CharacterApiService.updateBaseStats(this.state.id, 'base', event.target.name, Number(event.target.value))
-    .then(character => {
+    CharacterApiService.updateBaseStats(
+      this.state.id,
+      'base',
+      event.target.name,
+      Number(event.target.value)
+    ).then((character) => {
       this.context.setCharacter(character);
-      this.setState({character});
-    })
+      this.setState({ character });
+    });
   };
 
   handleProfChange = (event, index) => {
-    CharacterApiService.updateVariableStats(this.state.id, 'prof', event.target.value, index)
-    .then(character => {
+    CharacterApiService.updateVariableStats(
+      this.state.id,
+      'prof',
+      event.target.value,
+      index
+    ).then((character) => {
       this.context.setCharacter(character);
-      this.setState({character});
-    })
+      this.setState({ character });
+    });
   };
 
   renderOptions = (prof) => {
-    const allOptions = prof.options.map((option) => {
-      return <option value={option}>{option}</option>;
+    const allOptions = prof.options.map((option, index) => {
+      return (
+        <option key={index} value={option}>
+          {option}
+        </option>
+      );
     });
 
     return allOptions;
   };
 
   renderStandardArray = () => {
-    
+    const skills = ['Constitution', 'Strength', 'Wisdom', 'Dexterity', 'Intelligence', 'Charisma'];
+
+    const skillSelects = skills.map((skill, index) => {
+
+
+      return (
+        <div key={index} className="stat-select-area">
+        <label>{skill}</label>
+        <select
+          name={skill.toLowerCase()}
+          value={this.state.character.abilities[skill.toLowerCase()].base}
+          onChange={(e) => this.handleBaseChange(e)}
+        >
+          <option value={'0'}></option>
+          <option value={'15'}>15</option>
+          <option value={'14'}>14</option>
+          <option value={'13'}>13</option>
+          <option value={'12'}>12</option>
+          <option value={'10'}>10</option>
+          <option value={'8'}>8</option>
+        </select>
+        </div>
+
+      )
+    })
+
+    let repeatErr = false;
+    let value;
+    for (let i = 0; i < skills.length; i++) {
+      let key = skills[i].toLowerCase();
+      if (this.state.character.abilities[key].base === value) {
+        repeatErr = true;
+        break;
+      }
+      value = this.state.character.abilities[key].base;
+    }
+
     return (
       <div>
         <p>
@@ -78,90 +129,10 @@ class StatsScreen extends React.Component {
           your race, class, and background.
         </p>
         <p>Feel free to play around and see how the numbers below change!</p>
-        <label>Constitution</label>
-        <select
-          name={'constitution'}
-          value={this.state.character.abilities.constitution.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
-        <label>Strength</label>
-        <select
-          name={'strength'}
-          value={this.state.character.abilities.strength.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
-        <label>Wisdom</label>
-        <select
-          name={'wisdom'}
-          value={this.state.character.abilities.wisdom.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
-        <label>Dexterity</label>
-        <select
-          name={'dexterity'}
-          value={this.state.character.abilities.dexterity.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
-        <label>Intelligence</label>
-        <select
-          name={'intelligence'}
-          value={this.state.character.abilities.intelligence.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
-        <label>Charisma</label>
-        <select
-          name={'charisma'}
-          value={this.state.character.abilities.charisma.base}
-          onChange={(e) => this.handleBaseChange(e)}
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
+        {skillSelects}
+        {repeatErr === true && (
+          <p className="error">You cannot use the same number twice.</p>
+        )}
       </div>
     );
   };
@@ -170,9 +141,10 @@ class StatsScreen extends React.Component {
     const allSelections = this.state.character.check_prof.map((prof, index) => {
       if (prof.variable === true) {
         return (
-          <div>
+          <div key={index}>
             <label>
-              Based on your <em className="depends_on">{prof.depends_on}</em>, choose one of the following:
+              Based on your <em className="depends_on">{prof.depends_on}</em>,
+              choose one of the following:
             </label>
             <select
               value={this.state.character.check_prof[index].name}
@@ -182,26 +154,26 @@ class StatsScreen extends React.Component {
             </select>
           </div>
         );
-      } else {
-        return <></>;
       }
     });
 
     let repeatErr = false;
     let value;
-      for (let i = 0; i < this.state.character.check_prof.length; i++) {
-        if (this.state.character.check_prof[i].name === value) {
-          repeatErr = true;
-          break;
-        }
-        value = this.state.character.check_prof[i].name;
+    for (let i = 0; i < this.state.character.check_prof.length; i++) {
+      if (this.state.character.check_prof[i].name === value) {
+        repeatErr = true;
+        break;
       }
-    
+      value = this.state.character.check_prof[i].name;
+    }
+
     return (
       <div>
         {allSelections}
         {repeatErr === true && (
-          <p className="error">You cannot select the same skill more than once.</p>
+          <p className="error">
+            You cannot select the same skill more than once.
+          </p>
         )}
       </div>
     );
@@ -211,9 +183,10 @@ class StatsScreen extends React.Component {
     const allSelections = this.state.character.asi.map((asi, index) => {
       if (asi.variable === true) {
         return (
-          <div>
+          <div key={index}>
             <label>
-              Based on your <em className="depends_on">{asi.depends_on}</em>, choose one of the following:
+              Based on your <em className="depends_on">{asi.depends_on}</em>,
+              choose one of the following:
             </label>
             <select
               value={this.state.character.asi[index].name}
@@ -228,8 +201,6 @@ class StatsScreen extends React.Component {
             </select>
           </div>
         );
-      } else {
-        return <></>;
       }
     });
     const nonrepeatables = this.state.character.asi.filter(
@@ -259,8 +230,8 @@ class StatsScreen extends React.Component {
   };
 
   render() {
-    if(!this.state.character){
-      return <div>loading...</div>
+    if (!this.state.character) {
+      return <div>loading...</div>;
     }
     const allAsi = this.renderAsi();
     const standardArray = this.renderStandardArray();
@@ -280,26 +251,27 @@ class StatsScreen extends React.Component {
     );
     return (
       <div className="bodyarea">
-        <h3>
-          Choose your baseline ability scores:
-        </h3>
+        <h3>Choose your baseline ability scores:</h3>
         {standardArray}
-        {allAsi && (<h3>
-          Choose bonuses for your ability scores based on your previous selections:
-        </h3>)}
+        {allAsi.length && (
+          <h3>
+            Choose bonuses for your ability scores based on your previous
+            selections:
+          </h3>
+        )}
         {allAsi}
-        <h3>
-          Choose bonus proficiencies for specific skills::
-        </h3>
+        <h3>Choose bonus proficiencies for specific skills:</h3>
         {profs}
         <table>
-          <tr className="firstrow">
-            <th>Skill</th>
-            <th>Base modifier</th>
-            <th>Proficiency</th>
-            <th>Total modifier</th>
-          </tr>
-          {allStats}
+          <tbody>
+            <tr className="firstrow">
+              <th>Skill</th>
+              <th>Base modifier</th>
+              <th>Proficiency</th>
+              <th>Total modifier</th>
+            </tr>
+            {allStats}
+          </tbody>
         </table>
       </div>
     );

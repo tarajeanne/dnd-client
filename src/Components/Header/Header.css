@@ -61,7 +61,7 @@ h1{
   margin-right: 0 5px;
 }
 
-.user_link:not(:first-child):before{
+.user-link:not(:first-child):before{
   content: '    |    ';
 }
 

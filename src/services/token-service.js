@@ -6,14 +6,19 @@ const _TEN_SECONDS_IN_MS = 10000;
 const TokenService = {
   saveAuthToken(token, username) {
     window.sessionStorage.setItem(process.env.TOKEN_KEY, token);
+    window.sessionStorage.setItem('username', username);
   },
 
   getAuthToken() {
     return window.sessionStorage.getItem(process.env.TOKEN_KEY);
   },
+  getUserName() {
+    return window.sessionStorage.getItem('username');
+  },
 
   clearAuthToken() {
-    window.sessionStorage.removeItem(process.env.TOKEN_KEY);
+    window.sessionStorage.removeItem(process.env.TOKEN_KEY)
+    window.sessionStorage.removeItem('username');
   },
 
   hasAuthToken() {

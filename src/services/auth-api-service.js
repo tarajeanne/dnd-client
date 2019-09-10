@@ -15,7 +15,7 @@ const AuthApiService = {
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
       )
       .then((res) => {
-        TokenService.saveAuthToken(res.authToken);
+        TokenService.saveAuthToken(res.authToken, credentials.username);
         IdleService.registerIdleTimerResets();
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken();
@@ -55,7 +55,6 @@ const AuthApiService = {
               return res;
             })
             .catch((err) => {
-              console.log('refresh token request error');
               console.error(err);
             })
     );

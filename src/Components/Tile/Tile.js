@@ -10,7 +10,7 @@ class Tile extends React.Component {
       name: PropTypes.string,
       desc: PropTypes.string
     }),
-    selected: PropTypes.bool
+    selected: PropTypes.string
   }
 
   static contextType = CharacterContext;

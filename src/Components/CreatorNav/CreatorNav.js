@@ -128,13 +128,14 @@ class CreatorNav extends React.Component {
       charErrors.push('background');
     }
 
-    const allNavLinks = allScreens.map((screen) => {
+    const allNavLinks = allScreens.map((screen, index) => {
       let charError = charErrors.includes(screen);
       return (
         <NavLink
           to={screen}
           activeClassName="active"
           className={charError ? 'alert' : ''}
+          key={index}
         >
           {screen[0].toUpperCase() + screen.slice(1)}
         </NavLink>

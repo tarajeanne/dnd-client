@@ -184,7 +184,6 @@ span {
   list-style: none;
   display: inline;
   margin-left: 37px;
-  margin-bottom: 6px;
 }
 
 .language-title {
@@ -215,9 +214,8 @@ span {
 }
 
 
-/* @media print {
-  .background-image {
-     content:url('https://9bitmedia.files.wordpress.com/2014/07/9bit-vertical-page-1.png');
-     z-index:0;
-    }
-  } */
+ @media print {
+  .instructions {
+    display: none;
+  }
+}
