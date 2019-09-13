@@ -18,7 +18,7 @@ class Header extends React.Component {
 
   renderUserLinks = () => {
     return (
-      <div className="user-controls">
+      <nav className="user-controls">
         <ul className="user-links">
           <li className="user-link">
             <Link onClick={this.handleLogoutClick} to="/">
@@ -29,7 +29,7 @@ class Header extends React.Component {
             <Link to="/user">Home</Link>
           </li>
         </ul>
-      </div>
+      </nav>
     );
   };
 

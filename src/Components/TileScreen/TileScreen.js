@@ -23,11 +23,13 @@ class TileScreen extends React.Component {
   static contextType = CharacterContext;
 
   handleClick = (name) => {
+    console.log('clicked!');
     CharacterApiService.updateCharacter(
       this.state.id,
       this.state.screen,
       name
     ).then((res) => {
+      console.log(res);
       this.context.setCharacter(res);
       this.setState({
         selected: this.context.character[this.state.screen]
@@ -58,7 +60,7 @@ class TileScreen extends React.Component {
         );
       });
 
-      return <div className="tile-area">{allElements}</div>;
+      return <form aria-live="polite" className="tile-area">{allElements}</form>;
     } else {
       return <div>loading...</div>;
     }

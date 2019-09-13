@@ -19,6 +19,11 @@ p {
   width: 308px;
   height: 308px;
   border-radius: 1px;
+  z-index: 100;
+}
+
+.tile-radio {
+  opacity:0;
 }
 
 .selected {

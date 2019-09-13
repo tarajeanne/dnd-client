@@ -70,14 +70,14 @@ class CreatorNav extends React.Component {
     const nextback = (
       <div>
         {screenIndex !== 0 && (
-          <button>
-            <Link to={`${backScreen}`}>{'Back'}</Link>
-          </button>
+          
+            <Link to={`${backScreen}`}><button>{'Back'}</button></Link>
+          
         )}
         {screenIndex !== allScreens.length - 1 && (
-          <button>
-            <Link to={`${nextScreen}`}>Next</Link>
-          </button>
+          
+            <Link tabIndex="1" to={`${nextScreen}`}><button>Next</button></Link>
+          
         )}
       </div>
     );

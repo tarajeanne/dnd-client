@@ -50,10 +50,11 @@ h1{
 }
 
 .user-links {
-  position: absolute;
-  top: -5px;
-  right: 15px;
+  margin: auto;
+  padding: 0 15px;
+  padding-top: 10px;
   list-style: none;
+  max-width: 1050px;
 }
 
 .user-link {

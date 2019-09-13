@@ -84,8 +84,9 @@ class StatsScreen extends React.Component {
 
       return (
         <div key={index} className="stat-select-area">
-        <label>{skill}</label>
+        <label for={skill.toLowerCase()}>{skill}:</label>
         <select
+          id={skill.toLowerCase()}
           name={skill.toLowerCase()}
           value={this.state.character.abilities[skill.toLowerCase()].base}
           onChange={(e) => this.handleBaseChange(e)}
@@ -131,7 +132,7 @@ class StatsScreen extends React.Component {
         <p>Feel free to play around and see how the numbers below change!</p>
         {skillSelects}
         {repeatErr === true && (
-          <p className="error">You cannot use the same number twice.</p>
+          <p aria-live="assertive" className="error">You cannot use the same number twice.</p>
         )}
       </div>
     );
@@ -171,7 +172,7 @@ class StatsScreen extends React.Component {
       <div>
         {allSelections}
         {repeatErr === true && (
-          <p className="error">
+          <p aria-live="assertive" className="error">
             You cannot select the same skill more than once.
           </p>
         )}
@@ -250,7 +251,7 @@ class StatsScreen extends React.Component {
       }
     );
     return (
-      <div className="bodyarea">
+      <div aria-live="polite" className="bodyarea">
         <h3>Choose your baseline ability scores:</h3>
         {standardArray}
         {allAsi.length && (
