@@ -40,15 +40,15 @@ class UserPage extends React.Component {
   renderCharacters() {
     return this.state.characters.map((character, index) => {
       return (
-        <div key={index} className="characterTile">
-          <Link to={`/character/${character.id}/charactersheet`}>
+        <div key={index} className="characterTile clearfix">
+          <Link className="character-link" to={`/character/${character.id}/charactersheet`}>
             <h3>{character.name}</h3>
             <p>
               {character.race} {character.class}
             </p>
           </Link>
-          <button onClick={(id) => this.handleDelete(character.id)}>
-            Delete character
+          <button className="delete-button" onClick={(id) => this.handleDelete(character.id)}>
+            Delete
           </button>
         </div>
       );
@@ -94,7 +94,7 @@ class UserPage extends React.Component {
             type="text"
             placeholder="Sabrill of Savernke"
           />
-          <button type="submit">Create character!</button>
+          <button type="submit">Create!</button>
         </form>
       </div>
     );

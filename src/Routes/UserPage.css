@@ -12,4 +12,17 @@
   border-radius: 1px;
   width: 320px;
   height: 130px;
+  clear: left;
+}
+
+.character-link {
+  display: inline-block;
+}
+
+.delete-button {
+  float: right;
+}
+
+.clearfix {
+  overflow: auto;
 }
