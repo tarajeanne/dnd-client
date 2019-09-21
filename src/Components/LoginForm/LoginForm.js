@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import PropTypes from 'prop-types';
+import './LoginForm.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -29,10 +30,10 @@ class LoginForm extends React.Component {
       password.value = '';
       username.value = '';
       this.props.onLoginSuccess();
-
     })
+
     .catch(res => {
-      this.setState({ erro :res.error })
+      this.setState({ error: res.error })
     });
   };
 
@@ -41,20 +42,21 @@ class LoginForm extends React.Component {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="username">
-          <label htmlFor="LoginForm__username">User name</label>
-          <input required name="username" id="LoginForm__username" />
+        <div className="login-input-area">
+          <label htmlFor="LoginForm__username" className="login-label">Username:</label>
+          <input required className="login-input" name="username" id="LoginForm__username" />
         </div>
-        <div className="password">
-          <label htmlFor="LoginForm__password">Password</label>
+        <div className="login-input-area">
+          <label htmlFor="LoginForm__password" className="login-label">Password:</label>
           <input
             required
+            className="login-input"
             name="password"
             type="password"
             id="LoginForm__password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button className="login-submit" type="submit">Login</button>
       </form>
     );
   }

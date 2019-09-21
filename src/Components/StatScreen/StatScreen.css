@@ -41,3 +41,11 @@ select {
 .depends_on {
   font-weight: bold;
 }
+
+.stat-select-area {
+  display: inline-block;
+}
+
+.base-select {
+  float: right;
+}

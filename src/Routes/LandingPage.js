@@ -24,7 +24,7 @@ export default class LoginPage extends Component {
           onLoginSuccess={this.handleLoginSuccess}
         />
         <p>
-          If you just want to try out the app, log in under the credentials username: testuser and password: testuser. Characters under this account will be deleted occassionally. 
+          If you just want to try out the app, log in under the credentials <i>username: testuser</i> and <i>password: testuser</i>. Characters under this account will be deleted occassionally. 
         </p>
         <h2>
           No account? Register:

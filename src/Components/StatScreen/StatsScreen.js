@@ -90,6 +90,7 @@ class StatsScreen extends React.Component {
           name={skill.toLowerCase()}
           value={this.state.character.abilities[skill.toLowerCase()].base}
           onChange={(e) => this.handleBaseChange(e)}
+          className="base-select"
         >
           <option value={'0'}></option>
           <option value={'15'}>15</option>

@@ -1,0 +1,24 @@
+.LoginPage {
+  display: block;
+  margin: auto;
+  max-width: 400px;
+  border: 1px solid #7A6263;
+  padding: 10px;
+}
+
+.login-input-area {
+  text-align: center;
+}
+
+
+.login-label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.login-submit {
+  display: block;
+  margin: 15px auto;
+}

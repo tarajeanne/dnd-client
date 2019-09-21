@@ -53,7 +53,7 @@ class CharacterSheet extends React.Component {
       });
 
       return (
-        <div>
+        <div className="bodyarea">
           <p className="instructions">
             <em className="error">This page is optimized for use in Chrome.</em> To print your character sheet, right or command-click this page and select print. In the window that appears, click "more settings" and select the box called "background graphics." This ensures the background prints!
           </p>

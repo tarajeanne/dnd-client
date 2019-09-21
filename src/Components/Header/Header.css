@@ -41,7 +41,7 @@ h1{
   top: 0;
   width: 100%;
   background-color: #7A6263;
-  color: #Dff2d8;
+  color: white;
   height: 40px;
   text-align: right;
   font-family:'Montserrat', sans-serif;
@@ -67,7 +67,7 @@ h1{
 }
 
 li > a:link, li > a:visited {
-  color: #Dff2d8;
+  color: white;
 }
 
 li > a:hover {

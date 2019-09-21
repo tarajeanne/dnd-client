@@ -2,15 +2,24 @@
   max-width: 1000px;
   padding: 8px;
   margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.greeting {
+  display: block;
+  width: 100%;
 }
 
 .characterTile {
+  position: relative;
   border: .5px solid #c7c7c7;
   padding: 5px;
   box-shadow: 0px 0px 10px 1px #C7C7C7;
   margin: 8px;
   border-radius: 1px;
-  width: 320px;
+  width: 300px;
   height: 130px;
   clear: left;
 }
@@ -20,9 +29,16 @@
 }
 
 .delete-button {
-  float: right;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
-.clearfix {
-  overflow: auto;
+.character-create-button {
+  margin-left: 10px;
+}
+
+.character-name {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

@@ -42,13 +42,12 @@ class UserPage extends React.Component {
       return (
         <div key={index} className="characterTile clearfix">
           <Link className="character-link" to={`/character/${character.id}/charactersheet`}>
-            <h3>{character.name}</h3>
+            <h3 className="character-name">{character.name}</h3>
+            </Link>
             <p>
               {character.race} {character.class}
             </p>
-          </Link>
-          <button className="delete-button" onClick={(id) => this.handleDelete(character.id)}>
-            Delete
+          <button onClick={() => this.handleDelete(character.id)} className="delete-button"><i class="far fa-trash-alt"></i>
           </button>
         </div>
       );
@@ -78,10 +77,9 @@ class UserPage extends React.Component {
     }
     return (
       <div className="userArea">
-        <h2>Hello, {TokenService.getUserName()}!</h2>
-        <h3>Your characters:</h3>
-        {allCharacters}
-        <h3>Make a new character:</h3>
+        <h2 className="greeting">Hello, {TokenService.getUserName()}!</h2>
+        <div className="new-character-form">
+        <h3 className="greeting">Make a new character:</h3>
         <form onSubmit={this.handleNewCharacter}>
           <label htmlFor="name-input">
             Please enter a name for your character:
@@ -94,8 +92,13 @@ class UserPage extends React.Component {
             type="text"
             placeholder="Sabrill of Savernke"
           />
-          <button type="submit">Create!</button>
+          <button className="character-create-button" type="submit">Create!</button>
         </form>
+        </div>
+        <h3 className="greeting">Your characters:</h3>
+        {allCharacters}
+        
+        
       </div>
     );
   }
