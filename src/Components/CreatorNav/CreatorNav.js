@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CharacterContext from '../../contexts/CharacterContext';
 import CharacterApiService from '../../services/character-api-service';
@@ -60,10 +60,10 @@ class CreatorNav extends React.Component {
       'background',
       'stats',
       'alignment',
-      'charactersheet'
+      'character sheet'
     ];
     const screenIndex = allScreens.findIndex(
-      (screen) => this.state.screen === screen
+      (screen) => this.state.screen === screen.split(' ').join('')
     );
     const backScreen = allScreens[screenIndex - 1];
     const nextScreen = allScreens[screenIndex + 1];
@@ -92,7 +92,7 @@ class CreatorNav extends React.Component {
       'background',
       'stats',
       'alignment',
-      'charactersheet'
+      'character sheet'
     ];
     if (!this.context.character.race) {
       charErrors.push('race');
@@ -128,17 +128,25 @@ class CreatorNav extends React.Component {
       charErrors.push('background');
     }
 
-    const allNavLinks = allScreens.map((screen, index) => {
+    const allNavLinks = allScreens.map((currscreen, index) => {
+      let screen = currscreen.split(' ').join('');
       let charError = charErrors.includes(screen);
+      let classNames = ['creator-nav-link'];
+
+      if (this.state.screen === screen) {
+        classNames.push('active');
+      }
+
+      let className = classNames.join(' ');
+      console.log(className);
       return (
-        <NavLink
+        <Link
           to={screen}
-          activeClassName="active"
-          className={charError ? 'alert' : ''}
+          className={className}
           key={index}
         >
-          {screen[0].toUpperCase() + screen.slice(1)}
-        </NavLink>
+          {currscreen[0].toUpperCase() + currscreen.slice(1)}{(charError ? (<sup className='alert'><i class="fas fa-exclamation"></i></sup>) : <></>)}
+        </Link>
       );
     });
 
@@ -146,13 +154,18 @@ class CreatorNav extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     if (this.context.character) {
       return (
-        <div>
+        <div className="spacer">
+        <div className="character-creator-nav">
+          <div className="creator-nav-content">
+
+          
           <header className="character-creator-header">
             {!this.state.editingName && (
-              <h2 onClick={() => this.handleNameClick()}>
-                {this.context.character.name}
+              <h2>
+                {this.context.character.name}<sup onClick={() => this.handleNameClick()}><i class="far fa-edit"></i></sup>
               </h2>
             )}
             {this.state.editingName && (
@@ -162,17 +175,20 @@ class CreatorNav extends React.Component {
                   id="name"
                   onChange={(e) => this.handleNameChange(e)}
                   value={this.state.name}
+                  className="name-edit"
                 />
               </form>
             )}
-            <h3>
+            {/* <h3>
               {this.state.screen[0].toUpperCase() + this.state.screen.slice(1)}
-            </h3>
+            </h3> */}
           </header>
           <nav className="nav-area">
+          <div className="nextback">{this.renderNextBack()}</div>
             <div className="nav-menu">{this.renderNavLinks()}</div>
-            <div className="nextback">{this.renderNextBack()}</div>
           </nav>
+          </div>
+        </div>
         </div>
       );
     } else {

@@ -60,7 +60,7 @@ class TileScreen extends React.Component {
         );
       });
 
-      return <form aria-live="polite" className="tile-area">{allElements}</form>;
+      return <form aria-live="polite" className="tile-area bodyarea">{allElements}</form>;
     } else {
       return <div>loading...</div>;
     }

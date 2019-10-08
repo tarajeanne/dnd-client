@@ -29,7 +29,9 @@ class UserPage extends React.Component {
 
   handleDelete = (id) => {
     CharacterApiService.deleteCharacter(id).then((res) => {
-      const characterInfo = this.state.characters.filter(character => character.id !== id)
+      const characterInfo = this.state.characters.filter(
+        (character) => character.id !== id
+      );
       this.setState({
         value: '',
         characters: characterInfo
@@ -41,13 +43,20 @@ class UserPage extends React.Component {
     return this.state.characters.map((character, index) => {
       return (
         <div key={index} className="characterTile clearfix">
-          <Link className="character-link" to={`/character/${character.id}/charactersheet`}>
+          <Link
+            className="character-link"
+            to={`/character/${character.id}/charactersheet`}
+          >
             <h3 className="character-name">{character.name}</h3>
-            </Link>
-            <p>
-              {character.race} {character.class}
-            </p>
-          <button onClick={() => this.handleDelete(character.id)} className="delete-button"><i class="far fa-trash-alt"></i>
+          </Link>
+          <p>
+            {character.race} {character.class}
+          </p>
+          <button
+            onClick={() => this.handleDelete(character.id)}
+            className="delete-button"
+          >
+            <i class="far fa-trash-alt"></i>
           </button>
         </div>
       );
@@ -79,26 +88,26 @@ class UserPage extends React.Component {
       <div className="userArea">
         <h2 className="greeting">Hello, {TokenService.getUserName()}!</h2>
         <div className="new-character-form">
-        <h3 className="greeting">Make a new character:</h3>
-        <form onSubmit={this.handleNewCharacter}>
-          <label htmlFor="name-input">
-            Please enter a name for your character:
-          </label>
-          <input
-            name="name-input"
-            value={this.state.value}
-            onChange={this.handleChange}
-            id="name-input"
-            type="text"
-            placeholder="Sabrill of Savernke"
-          />
-          <button className="character-create-button" type="submit">Create!</button>
-        </form>
+          <h3 className="greeting">Make a new character:</h3>
+          <form onSubmit={this.handleNewCharacter}>
+            <label htmlFor="name-input">
+              Please enter a name for your character:
+            </label>
+            <input
+              name="name-input"
+              value={this.state.value}
+              onChange={this.handleChange}
+              id="name-input"
+              type="text"
+              placeholder="Sabrill of Savernke"
+            />
+            <button className="character-create-button" type="submit">
+              Create!
+            </button>
+          </form>
         </div>
         <h3 className="greeting">Your characters:</h3>
         {allCharacters}
-        
-        
       </div>
     );
   }
