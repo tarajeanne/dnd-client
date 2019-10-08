@@ -1,19 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tile renders as expected 1`] = `
-<div
-  className="option-tile"
-  onClick={[Function]}
+<label
+  htmlFor="Dwarf-tile-select"
 >
-  <header>
-    <h2>
-      Dwarf
-    </h2>
-  </header>
-  <p
-    className="option-description"
+  <div
+    className="option-tile"
   >
-    Proud warriors and miners from the mountains who value culture and tradition.
-  </p>
-</div>
+    <header>
+      <h2>
+        Dwarf
+      </h2>
+    </header>
+    <input
+      checked={false}
+      className="tile-radio"
+      id="Dwarf-tile-select"
+      onChange={[Function]}
+      type="radio"
+      value="Dwarf"
+    />
+    <p
+      className="option-description"
+    >
+      Proud warriors and miners from the mountains who value culture and tradition.
+    </p>
+  </div>
+</label>
 `;

@@ -9,28 +9,32 @@ exports[`LoginForm renders as expected 1`] = `
     role="alert"
   />
   <div
-    className="username"
+    className="login-input-area"
   >
     <label
+      className="login-label"
       htmlFor="LoginForm__username"
     >
-      User name
+      Username:
     </label>
     <input
+      className="login-input"
       id="LoginForm__username"
       name="username"
       required={true}
     />
   </div>
   <div
-    className="password"
+    className="login-input-area"
   >
     <label
+      className="login-label"
       htmlFor="LoginForm__password"
     >
-      Password
+      Password:
     </label>
     <input
+      className="login-input"
       id="LoginForm__password"
       name="password"
       required={true}
@@ -38,6 +42,7 @@ exports[`LoginForm renders as expected 1`] = `
     />
   </div>
   <button
+    className="login-submit"
     type="submit"
   >
     Login

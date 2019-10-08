@@ -48,9 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <header className="app-header">
-          
-        </header>
+        <div className="spacer"></div>
         <main className="App_main">
           {this.state.error && (
             <p className="red">There was an error! Oh no!</p>
@@ -58,8 +56,9 @@ class App extends React.Component {
           <Switch>
             <PublicOnlyRoute 
               exact 
-              path={'/'} 
+              path={['/', '/login']} 
               component={LandingPage} />
+
             <PublicOnlyRoute 
               path={'/register'} 
               component={RegistrationPage} />

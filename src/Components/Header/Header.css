@@ -2,23 +2,33 @@
   box-sizing: border-box;
 }
 
-.Header {
-  height: 120px;
-  max-width: 1050px;
-  padding: 0 15px;
-  margin: 50px auto 0;
-  background-image: url("https://ih0.redbubble.net/image.214383515.3210/flat,800x800,075,f.jpg");
-  background-position: 97% 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
+.spacer {
+  position: absolute;
+  height: 110px;
+  top: 0;
+  width: 100%;
+  margin: auto;
+  background: linear-gradient(to right, #FFBE00, #e85b2c);
+  box-shadow: 0 0 3px 3px gray;
+}
 
+.Header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 100px;
+  padding: 0 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: auto;
+  background-color: #1f2443;
+  color: white;
+  border-radius: 0 0 70px 0;
 }
 
 .hero {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
- 
+  display: inline-block;
 }
 
 h1{
@@ -31,30 +41,29 @@ h1{
   font-family:'Montserrat', sans-serif;
 }
 
-.header-image {
-  height: 115px;
-  float: right;
-}
-
 .user-controls {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: #7A6263;
+  display: inline-block;
   color: white;
-  height: 40px;
   text-align: right;
   font-family:'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: bold;
-}
+} 
 
 .user-links {
-  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 275px;
   padding: 0 15px;
-  padding-top: 10px;
   list-style: none;
-  max-width: 1050px;
+  margin-top: 0;
+}
+
+.active-link {
+  font-weight: 600;
 }
 
 .user-link {
@@ -62,14 +71,12 @@ h1{
   margin-right: 0 5px;
 }
 
-.user-link:not(:first-child):before{
-  content: '    |    ';
-}
-
 li > a:link, li > a:visited {
+  font-size: 20px;
   color: white;
+  text-decoration: none;
 }
 
 li > a:hover {
-  color: #C6DEA6;
+  color: #ffd966;
 }
