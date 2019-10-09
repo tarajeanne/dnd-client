@@ -118,10 +118,7 @@ class StatsScreen extends React.Component {
 
     return (
       <div>
-        <p>
-          It's time to pick ability scores! These numbers determine what kinds
-          of things your character will be good at during your campaign.
-        </p>
+  
         <p>
           You get a standard array of 15, 14, 13, 12, 10, 8. Distribute these
           numbers among the 6 ability types.

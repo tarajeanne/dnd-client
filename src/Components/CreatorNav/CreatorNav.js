@@ -154,14 +154,11 @@ class CreatorNav extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     if (this.context.character) {
       return (
         <div className="spacer">
         <div className="character-creator-nav">
           <div className="creator-nav-content">
-
-          
           <header className="character-creator-header">
             {!this.state.editingName && (
               <h2>
@@ -179,9 +176,6 @@ class CreatorNav extends React.Component {
                 />
               </form>
             )}
-            {/* <h3>
-              {this.state.screen[0].toUpperCase() + this.state.screen.slice(1)}
-            </h3> */}
           </header>
           <nav className="nav-area">
           <div className="nextback">{this.renderNextBack()}</div>
