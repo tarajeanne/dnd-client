@@ -46,12 +46,14 @@ class CreatorHeader extends React.Component {
         <div className="creator-header">
           <CreatorNav match={this.props.match}/>
           <div className="header-intro">
+            <div className="header-intro-content">
             <h3 className="creator-header-title">
               {this.state.instructions[this.state.screen].title}
             </h3>
             <p className="creator-header-description">
               {this.state.instructions[this.state.screen].description}
             </p>
+            </div>
           </div>
         </div>
       );

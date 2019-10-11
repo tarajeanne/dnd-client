@@ -1,5 +1,5 @@
 .bodyarea {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   padding: 8px;
   border-radius: 10px;
@@ -19,6 +19,7 @@ label {
 }
 
 table {
+  font-size: 14px;
   width: 80%;
   margin: 15px auto;
 }
@@ -28,8 +29,12 @@ table {
 }
 
 .error {
+  display: inline-block;
   color: #8D3B72;
   font-weight: bold;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 label {
@@ -45,9 +50,25 @@ select {
 }
 
 .stat-select-area {
-  display: inline-block;
+  display: block;
+  width: 200px;
+  margin: 5px 0;
+}
+
+.stat-section-header {
+  margin-top: 20px;
+}
+
+.choose-prof {
+  margin: 5px 0;
 }
 
 .base-select {
   float: right;
+}
+
+@media screen and (min-width: 400px) {
+  table {
+    font-size: 16px;
+  }
 }

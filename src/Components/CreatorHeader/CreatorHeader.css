@@ -3,7 +3,7 @@
   margin: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header-intro {
@@ -19,5 +19,9 @@
 @media screen and (min-width:500px) {
   .header-intro {
     width: 50%;
+  }
+
+  .header-intro-content {
+    max-width: 550px;
   }
 }

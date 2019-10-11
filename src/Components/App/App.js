@@ -4,6 +4,7 @@ import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import IdleService from '../../services/idle-service';
 
+import Footer from '../Footer/Footer';
 import LandingPage from '../../Routes/LandingPage';
 import RegistrationPage from '../../Routes/RegistrationPage';
 import UserPage from '../../Routes/UserPage';
@@ -47,7 +48,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <main className="App_main">
           {this.state.error && (
             <p className="red">There was an error! Oh no!</p>
@@ -72,6 +73,7 @@ class App extends React.Component {
               component={NotFoundPage} />
           </Switch>
         </main>
+        <Footer />
       </div>
     );
   }

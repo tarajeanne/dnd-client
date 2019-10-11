@@ -12,9 +12,11 @@ a:hover {
 
 .character-creator-nav {
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
   background-color: #403e41;
   border-radius: 0 0 90px 0;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .creator-nav-content {
@@ -22,7 +24,6 @@ a:hover {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  margin: auto;
 }
 
 nav {
@@ -38,6 +39,7 @@ nav {
   display: inline-block;
   padding-bottom: 10px;
   width: 100%;
+  height: 100%;
   background: linear-gradient(to right, #FFBE00, #e85b2c);
   box-shadow: 0 2px 2px 2px gray;
   margin-bottom: 30px;
@@ -70,31 +72,46 @@ nav {
 }
 
 .nav-area {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  text-align: left;
-  height: 100%;
-  
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.hamburger {
+  height: 35px;
+  margin-left: 5px;
 }
 
 .nav-menu {
   margin: 15px 0 0;
-  height: 100%;
-  text-align: center;
-  overflow: scroll;
+  text-align: left;
+  position: absolute;
+  left: 30%;
+  background-color: #403e41;
+  opacity: .98;
   padding: 10px;
+  box-shadow: 0 0 4px 2px gray;
+  z-index: 100;
+  border-radius: 5px;
 }
 
-.nav-menu > a {
+.nav-menu > li {
+  list-style: none;
+  margin: 5px 2px;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
 }
 
+.nav-menu > a {
+
+  text-decoration: none;
+}
+
 .nextback {
   text-align: center;
   margin: auto;
+  position: relative;
 }
 
 .hidden {
@@ -103,12 +120,23 @@ nav {
 
 button {
   vertical-align: middle;
-  font-size: 16px;
+  font-size: 18px;
   padding: 5px 15px;
   border-radius: 10px;
   background: linear-gradient(to left, #ffbe00, #e85b2c);
   color: white;
   border: none;
+}
+
+.close-nav {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .nextback-button {
@@ -119,8 +147,7 @@ button {
 }
 
 @media print {
-  .nav,
-  .nav * {
+  .Header *, .creator-header *, footer {
     display: none !important;
   }
 }
@@ -128,5 +155,9 @@ button {
 @media screen and (min-width: 500px) {
   .spacer {
     width: 50%;
+  }
+  .creator-nav-content {
+    width: 100%;
+    max-width: 550px;
   }
 }

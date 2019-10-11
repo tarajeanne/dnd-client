@@ -19,7 +19,11 @@ p {
   width: 308px;
   height: 308px;
   border-radius: 5px;
-  z-index: 100;
+  z-index: 99;
+}
+
+.option-tile:hover {
+  cursor: pointer;
 }
 
 div[class=option-tile]:hover {

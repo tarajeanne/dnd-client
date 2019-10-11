@@ -15,7 +15,8 @@ class CreatorNav extends React.Component {
         .split('/')
         .slice(1, 3)
         .join('/'),
-      editingName: false
+      editingName: false,
+      showNav: false
     };
   }
 
@@ -29,6 +30,12 @@ class CreatorNav extends React.Component {
     this.setState({
       editingName: !this.state.editingName,
       name: this.context.character.name
+    });
+  };
+
+  toggleNav = () => {
+    this.setState({
+      showNav: !this.state.showNav
     });
   };
 
@@ -52,37 +59,6 @@ class CreatorNav extends React.Component {
   };
 
   static contextType = CharacterContext;
-
-  renderNextBack = () => {
-    let allScreens = [
-      'race',
-      'class',
-      'background',
-      'stats',
-      'alignment',
-      'character sheet'
-    ];
-    const screenIndex = allScreens.findIndex(
-      (screen) => this.state.screen === screen.split(' ').join('')
-    );
-    const backScreen = allScreens[screenIndex - 1];
-    const nextScreen = allScreens[screenIndex + 1];
-    const nextback = (
-      <div>
-        {screenIndex !== 0 && (
-          
-            <Link to={`${backScreen}`}><button className="nextback-button">{'Back'}</button></Link>
-          
-        )}
-        {screenIndex !== allScreens.length - 1 && (
-          
-            <Link tabIndex="1" to={`${nextScreen}`}><button className="nextback-button">Next</button></Link>
-          
-        )}
-      </div>
-    );
-    return nextback;
-  };
 
   renderNavLinks = () => {
     let charErrors = [];
@@ -131,58 +107,112 @@ class CreatorNav extends React.Component {
     const allNavLinks = allScreens.map((currscreen, index) => {
       let screen = currscreen.split(' ').join('');
       let charError = charErrors.includes(screen);
-      let classNames = ['creator-nav-link'];
 
-      if (this.state.screen === screen) {
-        classNames.push('active');
-      }
-
-      let className = classNames.join(' ');
-      console.log(className);
       return (
-        <Link
-          to={screen}
-          className={className}
-          key={index}
-        >
-          {currscreen[0].toUpperCase() + currscreen.slice(1)}{(charError ? (<sup className='alert'><i class="fas fa-exclamation"></i></sup>) : <></>)}
-        </Link>
+        <li className={this.state.screen === screen && 'active'}>
+          <Link to={screen} className="creator-nav-link" key={index}>
+            {currscreen[0].toUpperCase() + currscreen.slice(1)}
+            {charError ? (
+              <sup className="alert">
+                <i class="fas fa-exclamation"></i>
+              </sup>
+            ) : (
+              <></>
+            )}
+          </Link>
+        </li>
       );
     });
 
     return allNavLinks;
   };
 
+  renderNextBack = () => {
+    let allScreens = [
+      'race',
+      'class',
+      'background',
+      'stats',
+      'alignment',
+      'character sheet'
+    ];
+    const screenIndex = allScreens.findIndex(
+      (screen) => this.state.screen === screen.split(' ').join('')
+    );
+
+    let nextScreen;
+    let backScreen;
+    if (screenIndex !== 0) {
+      backScreen = allScreens[screenIndex - 1].split(' ').join('');
+    }
+
+    if (screenIndex !== allScreens.length - 1) {
+      nextScreen = allScreens[screenIndex + 1].split(' ').join('');
+    }
+
+    const nextback = (
+      <div className="nextback">
+        {screenIndex !== 0 && (
+          <Link to={`${backScreen}`}>
+            <button className="nextback-button">{'Back'}</button>
+          </Link>
+        )}
+
+        {screenIndex !== allScreens.length - 1 && (
+          <Link tabIndex="1" to={`${nextScreen}`}>
+            <button className="nextback-button">Next</button>
+          </Link>
+        )}
+        <button className="hamburger" onClick={this.toggleNav}>
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+        {this.state.showNav && (
+          <ul className="nav-menu">
+            <button
+              className="close-nav"
+              onClick={this.toggleNav}
+              alt="close menu"
+            >
+              <i className="fas fa-times"></i>
+            </button>
+            {this.renderNavLinks()}
+          </ul>
+        )}
+      </div>
+    );
+    return nextback;
+  };
+
   render() {
     if (this.context.character) {
       return (
         <div className="spacer">
-        <div className="character-creator-nav">
-          <div className="creator-nav-content">
-          <header className="character-creator-header">
-            {!this.state.editingName && (
-              <h2>
-                {this.context.character.name}<sup onClick={() => this.handleNameClick()}><i class="far fa-edit"></i></sup>
-              </h2>
-            )}
-            {this.state.editingName && (
-              <form onSubmit={(e) => this.handleNameSubmit(e)}>
-                <input
-                  type="text"
-                  id="name"
-                  onChange={(e) => this.handleNameChange(e)}
-                  value={this.state.name}
-                  className="name-edit"
-                />
-              </form>
-            )}
-          </header>
-          <nav className="nav-area">
-          <div className="nextback">{this.renderNextBack()}</div>
-            <div className="nav-menu">{this.renderNavLinks()}</div>
-          </nav>
+          <div className="character-creator-nav">
+            <div className="creator-nav-content">
+              <header className="character-creator-header">
+                {!this.state.editingName && (
+                  <h2>
+                    {this.context.character.name}
+                    <sup onClick={() => this.handleNameClick()}>
+                      <i class="far fa-edit"></i>
+                    </sup>
+                  </h2>
+                )}
+                {this.state.editingName && (
+                  <form onSubmit={(e) => this.handleNameSubmit(e)}>
+                    <input
+                      type="text"
+                      id="name"
+                      onChange={(e) => this.handleNameChange(e)}
+                      value={this.state.name}
+                      className="name-edit"
+                    />
+                  </form>
+                )}
+              </header>
+              <nav className="nav-area">{this.renderNextBack()}</nav>
+            </div>
           </div>
-        </div>
         </div>
       );
     } else {

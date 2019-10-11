@@ -1,8 +1,8 @@
 .userArea {
-  max-width: 1000px;
+  max-width: 1100px;
   padding: 8px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 50px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -57,9 +57,7 @@
   text-decoration: none;
   color: black;
 }
-a{
-  text-decoration: none;
-}
+
 .character-name:hover {
   color: #e85b2c;
 }

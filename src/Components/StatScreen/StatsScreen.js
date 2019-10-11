@@ -77,33 +77,37 @@ class StatsScreen extends React.Component {
   };
 
   renderStandardArray = () => {
-    const skills = ['Constitution', 'Strength', 'Wisdom', 'Dexterity', 'Intelligence', 'Charisma'];
+    const skills = [
+      'Constitution',
+      'Strength',
+      'Wisdom',
+      'Dexterity',
+      'Intelligence',
+      'Charisma'
+    ];
 
     const skillSelects = skills.map((skill, index) => {
-
-
       return (
         <div key={index} className="stat-select-area">
-        <label for={skill.toLowerCase()}>{skill}:</label>
-        <select
-          id={skill.toLowerCase()}
-          name={skill.toLowerCase()}
-          value={this.state.character.abilities[skill.toLowerCase()].base}
-          onChange={(e) => this.handleBaseChange(e)}
-          className="base-select"
-        >
-          <option value={'0'}></option>
-          <option value={'15'}>15</option>
-          <option value={'14'}>14</option>
-          <option value={'13'}>13</option>
-          <option value={'12'}>12</option>
-          <option value={'10'}>10</option>
-          <option value={'8'}>8</option>
-        </select>
+          <label for={skill.toLowerCase()}>{skill}:</label>
+          <select
+            id={skill.toLowerCase()}
+            name={skill.toLowerCase()}
+            value={this.state.character.abilities[skill.toLowerCase()].base}
+            onChange={(e) => this.handleBaseChange(e)}
+            className="base-select"
+          >
+            <option value={'0'}></option>
+            <option value={'15'}>15</option>
+            <option value={'14'}>14</option>
+            <option value={'13'}>13</option>
+            <option value={'12'}>12</option>
+            <option value={'10'}>10</option>
+            <option value={'8'}>8</option>
+          </select>
         </div>
-
-      )
-    })
+      );
+    });
 
     let repeatErr = false;
     let value;
@@ -118,7 +122,6 @@ class StatsScreen extends React.Component {
 
     return (
       <div>
-  
         <p>
           You get a standard array of 15, 14, 13, 12, 10, 8. Distribute these
           numbers among the 6 ability types.
@@ -130,7 +133,9 @@ class StatsScreen extends React.Component {
         <p>Feel free to play around and see how the numbers below change!</p>
         {skillSelects}
         {repeatErr === true && (
-          <p aria-live="assertive" className="error">You cannot use the same number twice.</p>
+          <p aria-live="assertive" className="error">
+            You cannot use the same number twice.
+          </p>
         )}
       </div>
     );
@@ -140,7 +145,7 @@ class StatsScreen extends React.Component {
     const allSelections = this.state.character.check_prof.map((prof, index) => {
       if (prof.variable === true) {
         return (
-          <div key={index}>
+          <div className="choose-prof" key={index}>
             <label>
               Based on your <em className="depends_on">{prof.depends_on}</em>,
               choose one of the following:
@@ -167,7 +172,7 @@ class StatsScreen extends React.Component {
     }
 
     return (
-      <div>
+      <div className="choose-prof-area">
         {allSelections}
         {repeatErr === true && (
           <p aria-live="assertive" className="error">
@@ -250,16 +255,16 @@ class StatsScreen extends React.Component {
     );
     return (
       <div aria-live="polite" className="bodyarea">
-        <h3>Choose your baseline ability scores:</h3>
+        <h3 className="stat-section-header">Choose your baseline ability scores:</h3>
         {standardArray}
         {allAsi.length && (
-          <h3>
+          <h3 className="stat-section-header">
             Choose bonuses for your ability scores based on your previous
             selections:
           </h3>
         )}
         {allAsi}
-        <h3>Choose bonus proficiencies for specific skills:</h3>
+        <h3 className="stat-section-header">Choose bonus proficiencies for specific skills:</h3>
         {profs}
         <table>
           <tbody>
