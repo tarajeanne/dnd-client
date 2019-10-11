@@ -3,11 +3,10 @@ import AuthApiService from '../../services/auth-api-service';
 import PropTypes from 'prop-types';
 
 class RegistrationForm extends Component {
-
   static propTypes = {
     onRegistrationSuccess: PropTypes.func
   };
-  
+
   static defaultProps = {
     onRegistrationSuccess: () => {}
   };
@@ -21,7 +20,7 @@ class RegistrationForm extends Component {
     this.setState({ error: null });
     AuthApiService.postUser({
       username: username.value,
-      password: password.value,
+      password: password.value
     })
       .then((user) => {
         username.value = '';
@@ -36,31 +35,31 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="RegistrationForm" onSubmit={this.handleSubmit}>
+      <form className="LoginForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="username">
-          <label htmlFor="RegistrationForm__username">
-            Username:
-          </label>
+        <div className="login-input-area">
+          <label htmlFor="RegistrationForm__username" className="login-label">Username:</label>
           <input
+            className="login-input"
             name="username"
             type="text"
             required
             id="RegistrationForm__username"
           />
         </div>
-        <div className="password">
-          <label htmlFor="RegistrationForm__password">
-            Password:
-          </label>
+        <div className="login-input-area">
+          <label htmlFor="RegistrationForm__password" className="login-label">Password:</label>
           <input
+            className="login-input"
             name="password"
             type="password"
             required
             id="RegistrationForm__password"
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="login-submit" type="submit">
+          Register
+        </button>
       </form>
     );
   }

@@ -18,6 +18,13 @@ h2 {
   margin: 8px 0;
 }
 
+.LoginPage > p > a {
+  color: #e85b2c;
+}
+
+.LoginPage > p >  a:hover {
+  color: #FFBE00;
+}
 
 .login-label {
   display: inline-block;

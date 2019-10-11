@@ -26,10 +26,10 @@ export default class LoginPage extends Component {
         <p>
           If you just want to try out the app, log in under the credentials <i>username: testuser</i> and <i>password: testuser</i>. Characters under this account will be deleted occassionally. 
         </p>
-        <h2>
-          No account? Register:
-        </h2>
-        <Link to="/register">Register</Link>
+        <p>
+          No account? <Link to="/register">Register</Link>
+        </p>
+        
       </div>
     )
   }

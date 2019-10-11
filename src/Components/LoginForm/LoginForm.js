@@ -6,12 +6,12 @@ import './LoginForm.css';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {error: null};
+    this.state = { error: null };
   }
 
   static propTypes = {
     onLoginSuccess: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     onLoginSuccess: () => {}
@@ -19,22 +19,22 @@ class LoginForm extends React.Component {
 
   handleSubmitJwtAuth = (e) => {
     e.preventDefault();
-    this.setState({ error: null })
+    this.setState({ error: null });
     const { username, password } = e.target;
 
     AuthApiService.postLogin({
       username: username.value,
       password: password.value
     })
-    .then(res => {
-      password.value = '';
-      username.value = '';
-      this.props.onLoginSuccess();
-    })
+      .then((res) => {
+        password.value = '';
+        username.value = '';
+        this.props.onLoginSuccess();
+      })
 
-    .catch(res => {
-      this.setState({ error: res.error })
-    });
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
@@ -43,11 +43,20 @@ class LoginForm extends React.Component {
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="login-input-area">
-          <label htmlFor="LoginForm__username" className="login-label">Username:</label>
-          <input required className="login-input" name="username" id="LoginForm__username" />
+          <label htmlFor="LoginForm__username" className="login-label">
+            Username:
+          </label>
+          <input
+            required
+            className="login-input"
+            name="username"
+            id="LoginForm__username"
+          />
         </div>
         <div className="login-input-area">
-          <label htmlFor="LoginForm__password" className="login-label">Password:</label>
+          <label htmlFor="LoginForm__password" className="login-label">
+            Password:
+          </label>
           <input
             required
             className="login-input"
@@ -56,7 +65,9 @@ class LoginForm extends React.Component {
             id="LoginForm__password"
           />
         </div>
-        <button className="login-submit" type="submit">Login</button>
+        <button className="login-submit" type="submit">
+          Login
+        </button>
       </form>
     );
   }
