@@ -47,6 +47,7 @@ select {
 
 .depends_on {
   font-weight: bold;
+  font-style: normal;
 }
 
 .stat-select-area {

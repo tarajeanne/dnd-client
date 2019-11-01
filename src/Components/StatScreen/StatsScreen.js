@@ -154,10 +154,22 @@ class StatsScreen extends React.Component {
               value={this.state.character.check_prof[index].name}
               onChange={(e) => this.handleProfChange(e, index)}
             >
+              <option value=''>
+                
+              </option>
               {this.renderOptions(prof)}
             </select>
           </div>
         );
+      }
+      else {
+        return (
+          <div className="choose-prof" key={index}>
+            <p>
+              Based on your <em className="depends_on">{prof.depends_on}</em>, you are proficient in <em className="depends_on">{prof.name}</em>.
+            </p>
+          </div>
+        )
       }
     });
 
@@ -206,6 +218,13 @@ class StatsScreen extends React.Component {
           </div>
         );
       }
+      else {
+        return (
+          <div key={index}>
+            <p>Based on your <em className="depends_on">{asi.depends_on}</em>, you've received <em className="depends_on">+{asi.magnitude}</em> in <em className="depends_on">{asi.name}</em>.</p>
+          </div>
+        )
+      }
     });
     const nonrepeatables = this.state.character.asi.filter(
       (asi) => asi.norepeat === true
@@ -237,6 +256,9 @@ class StatsScreen extends React.Component {
     if (!this.state.character) {
       return <div>loading...</div>;
     }
+    console.log(this.state.character.check_prof);
+    console.log(this.state.character.ability_checks);
+    console.log(this.state.character.abilities);
     const allAsi = this.renderAsi();
     const standardArray = this.renderStandardArray();
     const profs = this.renderProf();
