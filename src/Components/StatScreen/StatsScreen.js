@@ -255,7 +255,9 @@ class StatsScreen extends React.Component {
     );
     return (
       <div aria-live="polite" className="bodyarea">
-        <h3 className="stat-section-header">Choose your baseline ability scores:</h3>
+        <h3 className="stat-section-header">
+          Choose your baseline ability scores:
+        </h3>
         {standardArray}
         {allAsi.length && (
           <h3 className="stat-section-header">
@@ -264,7 +266,9 @@ class StatsScreen extends React.Component {
           </h3>
         )}
         {allAsi}
-        <h3 className="stat-section-header">Choose bonus proficiencies for specific skills:</h3>
+        <h3 className="stat-section-header">
+          Choose bonus proficiencies for specific skills:
+        </h3>
         {profs}
         <table>
           <tbody>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './StatItem.css'
+import './StatItem.css';
 
 class StatItem extends React.Component {
   render() {

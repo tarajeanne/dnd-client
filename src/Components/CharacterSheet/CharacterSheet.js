@@ -22,9 +22,13 @@ class CharacterSheet extends React.Component {
       const languages = this.context.character.languages.map(
         (language, index) =>
           index < this.context.character.languages.length - 1 ? (
-            <li key={index} className="language">{language.name}, </li>
+            <li key={index} className="language">
+              {language.name},{' '}
+            </li>
           ) : (
-            <li key={index} className="language">{language.name}</li>
+            <li key={index} className="language">
+              {language.name}
+            </li>
           )
       );
 
@@ -40,81 +44,86 @@ class CharacterSheet extends React.Component {
         }
       );
 
-      const otherProfs = this.context.character.other_prof.map((prof, index) => {
-        if (prof.name) {
-          return (
-            <p key={index} className="other-prof">
-              {prof.name}: {prof.desc}
-            </p>
-          );
-        } else {
-          return <></>;
+      const otherProfs = this.context.character.other_prof.map(
+        (prof, index) => {
+          if (prof.name) {
+            return (
+              <p key={index} className="other-prof">
+                {prof.name}: {prof.desc}
+              </p>
+            );
+          } else {
+            return <></>;
+          }
         }
-      });
+      );
 
       return (
         <div className="bodyarea">
           <p className="instructions">
-            <em className="error">This page is optimized for use in Chrome.</em> To print your character sheet, right or command-click this page and select print. In the window that appears, click "more settings" and select the box called "background graphics." This ensures the background prints!
+            <em className="error">This page is optimized for use in Chrome.</em>{' '}
+            To print your character sheet, right or command-click this page and
+            select print. In the window that appears, click "more settings" and
+            select the box called "background graphics." This ensures the
+            background prints!
           </p>
-        <div className="background-image">
-          <span id="name">{this.context.character.name}</span>
-          <span id="levelandclass">{this.context.character.class}</span>
-          <span id="race">{this.context.character.race}</span>
-          <span id="alignment">{this.context.character.alignment}</span>
-          <span id="background">{this.context.character.background}</span>
-          <span id="strengthtot">
-            {this.context.character.abilities.strength.total}
-          </span>
-          <span id="strengthmod">
-            {this.context.character.abilities.strength.mod}
-          </span>
-          <span id="dexteritytot">
-            {this.context.character.abilities.dexterity.total}
-          </span>
-          <span id="dexteritymod">
-            {this.context.character.abilities.dexterity.mod}
-          </span>
-          <span id="constitutiontot">
-            {this.context.character.abilities.constitution.total}
-          </span>
-          <span id="constitutionmod">
-            {this.context.character.abilities.constitution.mod}
-          </span>
-          <span id="intelligencetot">
-            {this.context.character.abilities.intelligence.total}
-          </span>
-          <span id="intelligencemod">
-            {this.context.character.abilities.intelligence.mod}
-          </span>
-          <span id="wisdomtot">
-            {this.context.character.abilities.wisdom.total}
-          </span>
-          <span id="wisdommod">
-            {this.context.character.abilities.wisdom.mod}
-          </span>
-          <span id="charismatot">
-            {this.context.character.abilities.charisma.total}
-          </span>
-          <span id="charismamod">
-            {this.context.character.abilities.charisma.mod}
-          </span>
-          <span id="prof_bonus">{this.context.character.prof_bonus}</span>
-          <span id="max_hp">{this.context.character.hp}</span>
-          <span id="speed">{this.context.character.speed}</span>
-          {this.context.character.other_prof.filter(
-            (prof) => prof.name === 'Darkvision'
-          ) && <span id="vision">Dark</span>}
-          <ul id="check_prof_list">{skill_list}</ul>
-          <div className="profs_langs">
-            <span className="language-title">Languages:</span>
-            <ul className="language-list">{languages}</ul>
-            {otherProfs}
+          <div className="background-image">
+            <span id="name">{this.context.character.name}</span>
+            <span id="levelandclass">{this.context.character.class}</span>
+            <span id="race">{this.context.character.race}</span>
+            <span id="alignment">{this.context.character.alignment}</span>
+            <span id="background">{this.context.character.background}</span>
+            <span id="strengthtot">
+              {this.context.character.abilities.strength.total}
+            </span>
+            <span id="strengthmod">
+              {this.context.character.abilities.strength.mod}
+            </span>
+            <span id="dexteritytot">
+              {this.context.character.abilities.dexterity.total}
+            </span>
+            <span id="dexteritymod">
+              {this.context.character.abilities.dexterity.mod}
+            </span>
+            <span id="constitutiontot">
+              {this.context.character.abilities.constitution.total}
+            </span>
+            <span id="constitutionmod">
+              {this.context.character.abilities.constitution.mod}
+            </span>
+            <span id="intelligencetot">
+              {this.context.character.abilities.intelligence.total}
+            </span>
+            <span id="intelligencemod">
+              {this.context.character.abilities.intelligence.mod}
+            </span>
+            <span id="wisdomtot">
+              {this.context.character.abilities.wisdom.total}
+            </span>
+            <span id="wisdommod">
+              {this.context.character.abilities.wisdom.mod}
+            </span>
+            <span id="charismatot">
+              {this.context.character.abilities.charisma.total}
+            </span>
+            <span id="charismamod">
+              {this.context.character.abilities.charisma.mod}
+            </span>
+            <span id="prof_bonus">{this.context.character.prof_bonus}</span>
+            <span id="max_hp">{this.context.character.hp}</span>
+            <span id="speed">{this.context.character.speed}</span>
+            {this.context.character.other_prof.filter(
+              (prof) => prof.name === 'Darkvision'
+            ) && <span id="vision">Dark</span>}
+            <ul id="check_prof_list">{skill_list}</ul>
+            <div className="profs_langs">
+              <span className="language-title">Languages:</span>
+              <ul className="language-list">{languages}</ul>
+              {otherProfs}
+            </div>
+            <div className="skills-feats">{skillsFeats}</div>
           </div>
-          <div className="skills-feats">{skillsFeats}</div>
         </div>
-        </div>
-
       );
     } else {
       return <></>;

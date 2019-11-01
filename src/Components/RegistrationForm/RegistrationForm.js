@@ -38,7 +38,9 @@ class RegistrationForm extends Component {
       <form className="LoginForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="login-input-area">
-          <label htmlFor="RegistrationForm__username" className="login-label">Username:</label>
+          <label htmlFor="RegistrationForm__username" className="login-label">
+            Username:
+          </label>
           <input
             className="login-input"
             name="username"
@@ -48,7 +50,9 @@ class RegistrationForm extends Component {
           />
         </div>
         <div className="login-input-area">
-          <label htmlFor="RegistrationForm__password" className="login-label">Password:</label>
+          <label htmlFor="RegistrationForm__password" className="login-label">
+            Password:
+          </label>
           <input
             className="login-input"
             name="password"

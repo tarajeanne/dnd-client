@@ -29,22 +29,22 @@ class App extends React.Component {
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
-        AuthApiService.postRefreshToken()
-      })
+        AuthApiService.postRefreshToken();
+      });
     }
   }
 
   componentWillUnmount() {
-    IdleService.unRegisterIdleResets()
+    IdleService.unRegisterIdleResets();
     TokenService.clearCallbackBeforeExpiry();
   }
 
   logoutFromIdle = () => {
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
-    IdleService.unRegisterIdleResets()
+    IdleService.unRegisterIdleResets();
     this.forceUpdate();
-  }
+  };
 
   render() {
     return (
@@ -54,23 +54,19 @@ class App extends React.Component {
             <p className="red">There was an error! Oh no!</p>
           )}
           <Switch>
-            <PublicOnlyRoute 
-              exact 
-              path={['/', '/login']} 
-              component={LandingPage} />
+            <PublicOnlyRoute
+              exact
+              path={['/', '/login']}
+              component={LandingPage}
+            />
 
-            <PublicOnlyRoute 
-              path={'/register'} 
-              component={RegistrationPage} />
-            <PrivateRoute 
-              path={'/user'} 
-              component={UserPage} />
+            <PublicOnlyRoute path={'/register'} component={RegistrationPage} />
+            <PrivateRoute path={'/user'} component={UserPage} />
             <PrivateRoute
               path={'/character/:characterId'}
               component={CharacterCreator}
             />
-            <Route 
-              component={NotFoundPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
         <Footer />

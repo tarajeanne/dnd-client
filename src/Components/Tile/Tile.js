@@ -29,7 +29,9 @@ class Tile extends React.Component {
               : 'option-tile'
           }
         >
-          <header><h2>{this.props.item.name}</h2></header>
+          <header>
+            <h2>{this.props.item.name}</h2>
+          </header>
           <input
             className="tile-radio"
             onChange={() => {

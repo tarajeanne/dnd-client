@@ -4,7 +4,7 @@
   margin-top: 50px;
   max-width: 350px;
   padding: 10px;
-  background-color:	#e6e6e6;
+  background-color: #e6e6e6;
   color: black;
   border-radius: 10px;
 }
@@ -22,8 +22,8 @@ h2 {
   color: #e85b2c;
 }
 
-.LoginPage > p >  a:hover {
-  color: #FFBE00;
+.LoginPage > p > a:hover {
+  color: #ffbe00;
 }
 
 .login-label {

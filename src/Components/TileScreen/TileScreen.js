@@ -13,12 +13,12 @@ class TileScreen extends React.Component {
       id: this.props.match.path.split('/')[2]
     };
   }
-  
+
   static propTypes = {
     match: PropTypes.shape({
       path: PropTypes.string
     })
-  }
+  };
 
   static contextType = CharacterContext;
 
@@ -60,7 +60,11 @@ class TileScreen extends React.Component {
         );
       });
 
-      return <form aria-live="polite" className="tile-area bodyarea">{allElements}</form>;
+      return (
+        <form aria-live="polite" className="tile-area bodyarea">
+          {allElements}
+        </form>
+      );
     } else {
       return <div>loading...</div>;
     }

@@ -1,15 +1,18 @@
 @media print {
-  .Header, .user-controls, .character-creator-header, .nav-area {
+  .Header,
+  .user-controls,
+  .character-creator-header,
+  .nav-area {
     display: none;
   }
 }
 
 main {
   padding-bottom: 250px;
-
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }

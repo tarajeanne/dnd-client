@@ -40,7 +40,7 @@ nav {
   padding-bottom: 10px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #FFBE00, #e85b2c);
+  background: linear-gradient(to right, #ffbe00, #e85b2c);
   box-shadow: 0 2px 2px 2px gray;
   margin-bottom: 30px;
   border-radius: 0 0 90px 0;
@@ -51,7 +51,7 @@ nav {
   margin-left: 3px;
 }
 
-.fa-edit:hover{
+.fa-edit:hover {
   color: #ffd966;
 }
 
@@ -60,7 +60,7 @@ nav {
 }
 
 .alert {
-  color: #e07450!important;
+  color: #e07450 !important;
   font-weight: bold;
   margin-left: 1px;
 }
@@ -88,7 +88,7 @@ nav {
   position: absolute;
   left: 30%;
   background-color: #403e41;
-  opacity: .98;
+  opacity: 0.98;
   padding: 10px;
   box-shadow: 0 0 4px 2px gray;
   z-index: 100;
@@ -104,7 +104,6 @@ nav {
 }
 
 .nav-menu > a {
-
   text-decoration: none;
 }
 
@@ -147,7 +146,9 @@ button:hover {
 }
 
 @media print {
-  .Header *, .creator-header *, footer {
+  .Header *,
+  .creator-header *,
+  footer {
     display: none !important;
   }
 }

@@ -11,11 +11,11 @@ th {
 }
 
 td {
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 label {
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 table {
@@ -30,7 +30,7 @@ table {
 
 .error {
   display: inline-block;
-  color: #8D3B72;
+  color: #8d3b72;
   font-weight: bold;
   background-color: #e6e6e6;
   border-radius: 5px;

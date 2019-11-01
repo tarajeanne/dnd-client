@@ -22,18 +22,24 @@ class Header extends React.Component {
         <ul className="user-links">
           <li className="user-link">
             {this.props.hasAuthToken ? (
-              <NavLink to="/user" activeClassName="active-link">Home</NavLink>
+              <NavLink to="/user" activeClassName="active-link">
+                Home
+              </NavLink>
             ) : (
-              <NavLink to="/login" activeClassName="active-link">Login</NavLink>
+              <NavLink to="/login" activeClassName="active-link">
+                Login
+              </NavLink>
             )}
           </li>
           <li className="user-link">
             {this.props.hasAuthToken ? (
               <Link onClick={this.handleLogoutClick} to="/">
-              Logout
-            </Link>
+                Logout
+              </Link>
             ) : (
-              <NavLink to="/register" activeClassName="active-link">Register</NavLink>
+              <NavLink to="/register" activeClassName="active-link">
+                Register
+              </NavLink>
             )}
           </li>
         </ul>

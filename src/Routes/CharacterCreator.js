@@ -20,7 +20,7 @@ class CharacterCreator extends React.Component {
   componentDidMount() {
     CharacterApiService.getCharacter(this.state.characterId).then(
       (character) => {
-        console.log(character)
+        console.log(character);
         this.context.setCharacter(character);
         this.setState({ name: character.name });
       }
@@ -32,66 +32,66 @@ class CharacterCreator extends React.Component {
     }
     return (
       <>
-          <Route
-            exact
-            path={`${this.props.match.url}/race`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <TileScreen {...routeProps} />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path={`${this.props.match.url}/class`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <TileScreen {...routeProps} />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path={`${this.props.match.url}/background`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <TileScreen {...routeProps} />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path={`${this.props.match.url}/stats`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <StatsScreen {...routeProps} />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path={`${this.props.match.url}/alignment`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <TileScreen {...routeProps} />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path={`${this.props.match.url}/charactersheet`}
-            render={(routeProps) => (
-              <>
-                <CreatorHeader {...routeProps} />
-                <CharacterSheet {...routeProps} />
-              </>
-            )}
-          />
+        <Route
+          exact
+          path={`${this.props.match.url}/race`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <TileScreen {...routeProps} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path={`${this.props.match.url}/class`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <TileScreen {...routeProps} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path={`${this.props.match.url}/background`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <TileScreen {...routeProps} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path={`${this.props.match.url}/stats`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <StatsScreen {...routeProps} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path={`${this.props.match.url}/alignment`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <TileScreen {...routeProps} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path={`${this.props.match.url}/charactersheet`}
+          render={(routeProps) => (
+            <>
+              <CreatorHeader {...routeProps} />
+              <CharacterSheet {...routeProps} />
+            </>
+          )}
+        />
       </>
     );
   }

@@ -17,7 +17,7 @@ const TokenService = {
   },
 
   clearAuthToken() {
-    window.sessionStorage.removeItem(process.env.TOKEN_KEY)
+    window.sessionStorage.removeItem(process.env.TOKEN_KEY);
     window.sessionStorage.removeItem('username');
   },
 

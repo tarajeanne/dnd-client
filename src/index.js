@@ -5,12 +5,11 @@ import App from './Components/App/App';
 import { CharacterProvider } from './contexts/CharacterContext';
 import './index.css';
 
-
 ReactDOM.render(
   <CharacterProvider>
     <BrowserRouter>
-          <App />
+      <App />
     </BrowserRouter>
   </CharacterProvider>,
   document.getElementById('root')
-)
+);
