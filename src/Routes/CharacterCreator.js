@@ -20,7 +20,6 @@ class CharacterCreator extends React.Component {
   componentDidMount() {
     CharacterApiService.getCharacter(this.state.characterId).then(
       (character) => {
-        console.log(character);
         this.context.setCharacter(character);
         this.setState({ name: character.name });
       }

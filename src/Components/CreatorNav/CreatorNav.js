@@ -114,7 +114,7 @@ class CreatorNav extends React.Component {
             {currscreen[0].toUpperCase() + currscreen.slice(1)}
             {charError ? (
               <sup className="alert">
-                <i class="fas fa-exclamation"></i>
+                <i className="fas fa-exclamation"></i>
               </sup>
             ) : (
               <></>
@@ -164,7 +164,7 @@ class CreatorNav extends React.Component {
           </Link>
         )}
         <button className="hamburger" onClick={this.toggleNav}>
-          <i class="fas fa-bars fa-lg"></i>
+          <i className="fas fa-bars fa-lg"></i>
         </button>
         {this.state.showNav && (
           <ul className="nav-menu">
@@ -194,7 +194,7 @@ class CreatorNav extends React.Component {
                   <h2>
                     {this.context.character.name}
                     <sup onClick={() => this.handleNameClick()}>
-                      <i class="far fa-edit"></i>
+                      <i className="far fa-edit"></i>
                     </sup>
                   </h2>
                 )}

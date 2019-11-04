@@ -23,13 +23,11 @@ class TileScreen extends React.Component {
   static contextType = CharacterContext;
 
   handleClick = (name) => {
-    console.log('clicked!');
     CharacterApiService.updateCharacter(
       this.state.id,
       this.state.screen,
       name
     ).then((res) => {
-      console.log(res);
       this.context.setCharacter(res);
       this.setState({
         selected: this.context.character[this.state.screen]

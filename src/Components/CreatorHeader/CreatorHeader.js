@@ -6,7 +6,6 @@ import './CreatorHeader.css';
 class CreatorHeader extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.path.split('/')[3]);
     this.state = {
       screen: this.props.match.path.split('/')[3],
       instructions: {

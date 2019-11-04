@@ -56,7 +56,7 @@ class UserPage extends React.Component {
             onClick={() => this.handleDelete(character.id)}
             className="delete-button"
           >
-            <i class="far fa-trash-alt"></i>
+            <i className="far fa-trash-alt"></i>
           </button>
         </div>
       );

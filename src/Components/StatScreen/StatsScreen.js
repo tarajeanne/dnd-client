@@ -67,8 +67,8 @@ class StatsScreen extends React.Component {
   renderOptions = (prof) => {
     const allOptions = prof.options.map((option, index) => {
       return (
-        <option key={index} value={option}>
-          {option}
+        <option key={index} value={option.toLowerCase()}>
+          {option.toLowerCase()}
         </option>
       );
     });
@@ -89,7 +89,7 @@ class StatsScreen extends React.Component {
     const skillSelects = skills.map((skill, index) => {
       return (
         <div key={index} className="stat-select-area">
-          <label for={skill.toLowerCase()}>{skill}:</label>
+          <label htmlFor={skill.toLowerCase()}>{skill}:</label>
           <select
             id={skill.toLowerCase()}
             name={skill.toLowerCase()}
@@ -151,7 +151,7 @@ class StatsScreen extends React.Component {
               choose one of the following:
             </label>
             <select
-              value={this.state.character.check_prof[index].name}
+              value={this.state.character.check_prof[index].name.toLowerCase()}
               onChange={(e) => this.handleProfChange(e, index)}
             >
               <option value=''>
@@ -256,9 +256,6 @@ class StatsScreen extends React.Component {
     if (!this.state.character) {
       return <div>loading...</div>;
     }
-    console.log(this.state.character.check_prof);
-    console.log(this.state.character.ability_checks);
-    console.log(this.state.character.abilities);
     const allAsi = this.renderAsi();
     const standardArray = this.renderStandardArray();
     const profs = this.renderProf();

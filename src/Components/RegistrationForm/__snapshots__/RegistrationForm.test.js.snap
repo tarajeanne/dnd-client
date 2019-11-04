@@ -2,21 +2,23 @@
 
 exports[`RegistrationForm renders as expected 1`] = `
 <form
-  className="RegistrationForm"
+  className="LoginForm"
   onSubmit={[Function]}
 >
   <div
     role="alert"
   />
   <div
-    className="username"
+    className="login-input-area"
   >
     <label
+      className="login-label"
       htmlFor="RegistrationForm__username"
     >
       Username:
     </label>
     <input
+      className="login-input"
       id="RegistrationForm__username"
       name="username"
       required={true}
@@ -24,14 +26,16 @@ exports[`RegistrationForm renders as expected 1`] = `
     />
   </div>
   <div
-    className="password"
+    className="login-input-area"
   >
     <label
+      className="login-label"
       htmlFor="RegistrationForm__password"
     >
       Password:
     </label>
     <input
+      className="login-input"
       id="RegistrationForm__password"
       name="password"
       required={true}
@@ -39,6 +43,7 @@ exports[`RegistrationForm renders as expected 1`] = `
     />
   </div>
   <button
+    className="login-submit"
     type="submit"
   >
     Register

@@ -17,6 +17,34 @@ exports[`Header renders as expected 1`] = `
         for Absolute Beginners
       </p>
     </header>
+    <nav
+      className="user-controls"
+    >
+      <ul
+        className="user-links"
+      >
+        <li
+          className="user-link"
+        >
+          <NavLink
+            activeClassName="active-link"
+            to="/login"
+          >
+            Login
+          </NavLink>
+        </li>
+        <li
+          className="user-link"
+        >
+          <NavLink
+            activeClassName="active-link"
+            to="/register"
+          >
+            Register
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   </div>
 </Fragment>
 `;

@@ -15,7 +15,6 @@ class Tile extends React.Component {
 
   static contextType = CharacterContext;
   handleClick = () => {
-    console.log('change!!');
     this.props.handleClick(this.props.item.name);
   };
 
