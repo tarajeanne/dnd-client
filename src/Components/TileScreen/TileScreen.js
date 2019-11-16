@@ -2,6 +2,7 @@ import React from 'react';
 import Tile from '../Tile/Tile';
 import CharacterApiService from '../../services/character-api-service';
 import CharacterContext from '../../contexts/CharacterContext';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import './TileScreen.css';
 import PropTypes from 'prop-types';
 
@@ -64,7 +65,7 @@ class TileScreen extends React.Component {
         </form>
       );
     } else {
-      return <div>loading...</div>;
+      return       (<></>);
     }
   }
 }

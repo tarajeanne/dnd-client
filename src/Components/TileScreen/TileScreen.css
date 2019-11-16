@@ -7,3 +7,9 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+
+.Loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
