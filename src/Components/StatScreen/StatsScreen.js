@@ -165,7 +165,7 @@ class StatsScreen extends React.Component {
       else {
         return (
           <div className="choose-prof" key={index}>
-            <p>
+            <p className="proficient-in">
               Based on your <em className="depends_on">{prof.depends_on}</em>, you are proficient in <em className="depends_on">{prof.name}</em>.
             </p>
           </div>

@@ -6,6 +6,10 @@
   background-color: white;
 }
 
+.proficient-in {
+  margin: 3px 0px;
+} 
+
 th {
   font-family: 'Raleway', sans-serif;
 }

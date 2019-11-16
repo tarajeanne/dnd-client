@@ -8,6 +8,8 @@ import './CreatorNav.css';
 class CreatorNav extends React.Component {
   constructor(props) {
     super(props);
+    this.node = React.createRef();
+    this.menu = React.createRef();
     this.state = {
       screen: this.props.match.path.split('/')[3],
       characterId: this.props.match.path.split('/')[2],
@@ -20,10 +22,31 @@ class CreatorNav extends React.Component {
     };
   }
 
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleMouseDown, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleMouseDown, false);
+  }
+
   static propTypes = {
     match: PropTypes.shape({
       path: PropTypes.string
     })
+  };
+
+  handleMouseDown = (e) => {
+    e.stopPropagation();
+    if (
+      this.node.current &&
+      (this.node.current.contains(e.target) ||
+        this.menu.current.contains(e.target))
+    ) {
+      return;
+    } else if (this.state.showNav) {
+      this.toggleNav();
+    }
   };
 
   handleNameClick = () => {
@@ -109,7 +132,10 @@ class CreatorNav extends React.Component {
       let charError = charErrors.includes(screen);
 
       return (
-        <li className={this.state.screen === screen && 'active'}>
+        <li
+          ref={this.node}
+          className={this.state.screen === screen && 'active'}
+        >
           <Link to={screen} className="creator-nav-link" key={index}>
             {currscreen[0].toUpperCase() + currscreen.slice(1)}
             {charError ? (
@@ -163,7 +189,7 @@ class CreatorNav extends React.Component {
             <button className="nextback-button">Next</button>
           </Link>
         )}
-        <button className="hamburger" onClick={this.toggleNav}>
+        <button ref={this.menu} className="hamburger" onClick={this.toggleNav}>
           <i className="fas fa-bars fa-lg"></i>
         </button>
         {this.state.showNav && (
