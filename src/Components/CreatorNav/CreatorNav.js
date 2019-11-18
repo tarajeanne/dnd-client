@@ -38,15 +38,16 @@ class CreatorNav extends React.Component {
 
   handleMouseDown = (e) => {
     e.stopPropagation();
-    if (
-      this.node.current &&
-      (this.node.current.contains(e.target) ||
-        this.menu.current.contains(e.target))
-    ) {
-      return;
-    } else if (this.state.showNav) {
-      this.toggleNav();
-    }
+    if (this.node.current) {
+      console.log(this.node.current.contains(e.target));
+      if ((this.node.current.contains(e.target) ||
+      this.menu.current.contains(e.target))) {
+        console.log('this part ran');
+      }
+      else if (this.state.showNav) {
+        this.toggleNav();
+      }
+    } 
   };
 
   handleNameClick = () => {

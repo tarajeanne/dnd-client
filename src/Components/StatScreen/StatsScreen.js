@@ -246,7 +246,7 @@ class StatsScreen extends React.Component {
       <div>
         {allSelections}
         {repeatErr === true && (
-          <p>You cannot select the same ability more than once.</p>
+          <p aria-live="assertive" className="error">You cannot select the same ability more than once.</p>
         )}
       </div>
     );
