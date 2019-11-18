@@ -154,22 +154,20 @@ class StatsScreen extends React.Component {
               value={this.state.character.check_prof[index].name.toLowerCase()}
               onChange={(e) => this.handleProfChange(e, index)}
             >
-              <option value=''>
-                
-              </option>
+              <option value=""></option>
               {this.renderOptions(prof)}
             </select>
           </div>
         );
-      }
-      else {
+      } else {
         return (
           <div className="choose-prof" key={index}>
             <p className="proficient-in">
-              Based on your <em className="depends_on">{prof.depends_on}</em>, you are proficient in <em className="depends_on">{prof.name}</em>.
+              Based on your <em className="depends_on">{prof.depends_on}</em>,
+              you are proficient in <em className="depends_on">{prof.name}</em>.
             </p>
           </div>
-        )
+        );
       }
     });
 
@@ -217,13 +215,16 @@ class StatsScreen extends React.Component {
             </select>
           </div>
         );
-      }
-      else {
+      } else {
         return (
           <div key={index}>
-            <p>Based on your <em className="depends_on">{asi.depends_on}</em>, you've received <em className="depends_on">+{asi.magnitude}</em> in <em className="depends_on">{asi.name}</em>.</p>
+            <p>
+              Based on your <em className="depends_on">{asi.depends_on}</em>,
+              you've received <em className="depends_on">+{asi.magnitude}</em>{' '}
+              in <em className="depends_on">{asi.name}</em>.
+            </p>
           </div>
-        )
+        );
       }
     });
     const nonrepeatables = this.state.character.asi.filter(
@@ -246,7 +247,9 @@ class StatsScreen extends React.Component {
       <div>
         {allSelections}
         {repeatErr === true && (
-          <p aria-live="assertive" className="error">You cannot select the same ability more than once.</p>
+          <p aria-live="assertive" className="error">
+            You cannot select the same ability more than once.
+          </p>
         )}
       </div>
     );
