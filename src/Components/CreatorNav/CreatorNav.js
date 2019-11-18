@@ -38,16 +38,19 @@ class CreatorNav extends React.Component {
 
   handleMouseDown = (e) => {
     e.stopPropagation();
+    console.log(e.target);
     if (this.node.current) {
       console.log(this.node.current.contains(e.target));
-      if ((this.node.current.contains(e.target) ||
-      this.menu.current.contains(e.target))) {
+      console.log(e.target);
+      if (
+        this.node.current.contains(e.target) ||
+        this.menu.current.contains(e.target)
+      ) {
         console.log('this part ran');
-      }
-      else if (this.state.showNav) {
+      } else if (this.state.showNav) {
         this.toggleNav();
       }
-    } 
+    }
   };
 
   handleNameClick = () => {
@@ -133,10 +136,7 @@ class CreatorNav extends React.Component {
       let charError = charErrors.includes(screen);
 
       return (
-        <li
-          ref={this.node}
-          className={this.state.screen === screen && 'active'}
-        >
+        <li key={index} className={this.state.screen === screen ? 'active' : ''}>
           <Link to={screen} className="creator-nav-link" key={index}>
             {currscreen[0].toUpperCase() + currscreen.slice(1)}
             {charError ? (
@@ -194,7 +194,7 @@ class CreatorNav extends React.Component {
           <i className="fas fa-bars fa-lg"></i>
         </button>
         {this.state.showNav && (
-          <ul className="nav-menu">
+          <ul ref={this.node} className="nav-menu">
             <button
               className="close-nav"
               onClick={this.toggleNav}
