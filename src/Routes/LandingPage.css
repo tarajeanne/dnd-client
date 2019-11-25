@@ -1,0 +1,14 @@
+.landing-page {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  max-width: 1200px;
+}
+
+.landing-page-info {
+  width: 75%
+}
+
+.landing-page-login {
+  width: 25%;
+}
