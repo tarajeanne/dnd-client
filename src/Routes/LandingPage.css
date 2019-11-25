@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: row-reverse wrap;
   justify-content: space-between;
+  align-items: flex-start;
   max-width: 1200px;
   margin: auto;
   padding: 20px 10px;
@@ -13,19 +14,20 @@
 
 .landing-page-login {
   display: inline-block;
-  height: 100%;
-  margin: auto;
+  margin: 0 auto;
+  padding: 15px;
 }
 
 .landing-page-info {
   display: inline-block;
   margin: auto;
+  padding: 10px;
 }
 
 .video-container {
   display: inline-block;
   position: relative;
-  margin: auto;
+  margin: 10px auto;
   width: 100%;
   height: 0;
   padding-bottom: 51%;
