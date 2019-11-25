@@ -21,26 +21,14 @@ class Header extends React.Component {
       <nav className="user-controls">
         <ul className="user-links">
           <li className="user-link">
-            {this.props.hasAuthToken ? (
-              <NavLink to="/user" activeClassName="active-link">
-                Home
-              </NavLink>
-            ) : (
-              <NavLink to="/login" activeClassName="active-link">
-                Login
-              </NavLink>
-            )}
+            <NavLink to="/user" activeClassName="active-link">
+              Home
+            </NavLink>
           </li>
           <li className="user-link">
-            {this.props.hasAuthToken ? (
-              <Link onClick={this.handleLogoutClick} to="/">
-                Logout
-              </Link>
-            ) : (
-              <NavLink to="/register" activeClassName="active-link">
-                Register
-              </NavLink>
-            )}
+            <Link onClick={this.handleLogoutClick} to="/">
+              Logout
+            </Link>
           </li>
         </ul>
       </nav>
@@ -55,7 +43,7 @@ class Header extends React.Component {
             <h1>DnD Character Creator</h1>
             <p className="sub">for Absolute Beginners</p>
           </header>
-          {this.renderUserLinks()}
+          {this.props.hasAuthToken ? this.renderUserLinks() : ''}
         </div>
       </>
     );

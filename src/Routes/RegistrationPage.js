@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import RegistrationForm from '../Components/RegistrationForm/RegistrationForm';
 import { Redirect, Link } from 'react-router-dom';
 
 export default class RegistrationPage extends Component {

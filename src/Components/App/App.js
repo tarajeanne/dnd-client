@@ -6,7 +6,6 @@ import IdleService from '../../services/idle-service';
 
 import Footer from '../Footer/Footer';
 import LandingPage from '../../Routes/LandingPage';
-import RegistrationPage from '../../Routes/RegistrationPage';
 import UserPage from '../../Routes/UserPage';
 import NotFoundPage from '../../Routes/NotFoundPage';
 import CharacterCreator from '../../Routes/CharacterCreator';
