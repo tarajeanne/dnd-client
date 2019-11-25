@@ -56,11 +56,9 @@ class App extends React.Component {
           <Switch>
             <PublicOnlyRoute
               exact
-              path={['/', '/login']}
+              path={['/', '/login', '/registration']}
               component={LandingPage}
             />
-
-            <PublicOnlyRoute path={'/register'} component={RegistrationPage} />
             <PrivateRoute path={'/user'} component={UserPage} />
             <PrivateRoute
               path={'/character/:characterId'}

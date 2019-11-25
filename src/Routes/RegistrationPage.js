@@ -26,15 +26,7 @@ export default class RegistrationPage extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div className="LoginPage">
-        <h2>Register</h2>
-        <RegistrationForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
-        <p>
-          Already have an account? <Link to="/login">Sign in</Link>
-        </p>
-      </div>
+      <> </>
     );
   }
 }
