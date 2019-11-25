@@ -15,11 +15,6 @@ export default class RegistrationPage extends Component {
     }
   };
 
-  handleRegistrationSuccess = (user) => {
-    this.setState({
-      redirectTo: '/'
-    });
-  };
 
   render() {
     if (this.state.redirectTo) {
