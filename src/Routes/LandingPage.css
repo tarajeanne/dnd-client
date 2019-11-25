@@ -1,14 +1,33 @@
 .landing-page {
   display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
   max-width: 1200px;
+  margin: auto;
+  padding: 20px 10px;
 }
 
-.landing-page-info {
-  width: 75%
+.login-toggle {
+  text-align: center;
 }
 
 .landing-page-login {
-  width: 25%;
+  display: inline-block;
+  height: 100%;
+  margin: auto;
+}
+
+.landing-page-info {
+  display: inline-block;
+  margin: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .landing-page {
+    flex-flow: row-reverse nowrap;
+  }
+
+  .LoginPage {
+    width: 300px;
+  }
 }

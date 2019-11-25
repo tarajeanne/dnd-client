@@ -38,9 +38,6 @@ export default class LoginPage extends Component {
   render() {
     return (
       <div className="landing-page">
-        <div className="landing-page-info">
-          <h2>Welcome to the Dungeons and Dragons Character Creator!</h2>
-        </div>
         <div className="landing-page-login">
           {this.state.login && (
             <div className="LoginPage">
@@ -67,6 +64,18 @@ export default class LoginPage extends Component {
               </p>
             </div>
           )}
+        </div>
+        <div className="landing-page-info">
+          <h2>Welcome to the Dungeons and Dragons Character Creator!</h2>
+          <p>
+            If you're new to Dungeons and Dragons and don't know where to start,
+            have no fear! This app will guide you through the most difficult and
+            important part of D&D: designing your very own, 100% customized,
+            perfectly unique character. Your character is more than just a set
+            of stats--it's a person, with a background, with values and flaws,
+            that you will grow to love through your adventures.
+          </p>
+          <h3>What is Dungeons and Dragons?</h3>
         </div>
       </div>
     );
