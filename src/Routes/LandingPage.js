@@ -76,6 +76,10 @@ export default class LoginPage extends Component {
             that you will grow to love through your adventures.
           </p>
           <h3>What is Dungeons and Dragons?</h3>
+          <div className="video-container">
+          <iframe className="video" title="Vox Dungeons and Dragons" src="https://www.youtube.com/embed/2PEt5RdNHNw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          
         </div>
       </div>
     );
