@@ -44,11 +44,6 @@ export default class LoginPage extends Component {
               <div className="LoginPage">
                 <h3 className="login-header">Login</h3>
                 <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-                {/* <p>
-            If you just want to try out the app, log in under the credentials{' '}
-            <i>username: testuser</i> and <i>password: testuser</i>. Characters
-            under this account will be deleted occassionally.
-          </p> */}
                 <p className="login-toggle">
                   Login | <a onClick={this.handleClick}>Register</a>
                 </p>
@@ -76,6 +71,12 @@ export default class LoginPage extends Component {
               than just a set of stats--it's a person, with a background, with
               values and flaws, that you will grow to love through your
               adventures.
+
+              <p className="error">
+            If you just want to try out the app, log in under the credentials:{' '}
+            <br />username: <i>testuser</i><br />password: <i>testuser</i> <br /> Characters
+            under this account will be deleted occassionally.
+          </p>
             </p>
           </div>
         </section>
@@ -104,7 +105,7 @@ export default class LoginPage extends Component {
           </p>
           <p>
             Then, you and your friends get together with your DM, or Dungeon
-            Master. The Dungeon Master walks you through the story. They'll have
+            Master. The Dungeon Master walks you through the story. She'll have
             things planned out, but you can have your character do anything, so
             the DM always needs to be on her toes. As the DM describes the
             setting and scenario, you'll make decisions for your character. Say
@@ -116,7 +117,15 @@ export default class LoginPage extends Component {
           </p>
           <p>
             As you and your party adventure through this land, you'll save
-            towns, get in barfights, defeat monsters, and survive magical caves.{' '}
+            towns, get in barfights, defeat monsters, solve puzzles, and survive magical caves. Most importantly, you get the chance to strategize and laugh with your friends.
+          </p>
+
+          <h3>So what's this app for?</h3>
+          <p>
+            You know that big nasty rulebook from the Vox video? Don't worry about it. This app will walk you through creating your character stress-free. With simplified descriptions and a straight-forward interface, you'll have a character created in no time. All you need is a Dungeon Master, some dice, and a sense of adventure.
+          </p>
+          <p>
+            Happy character creating!
           </p>
         </section>
       </div>
