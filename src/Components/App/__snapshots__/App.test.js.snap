@@ -15,12 +15,9 @@ exports[`App renders as expected 1`] = `
           Array [
             "/",
             "/login",
+            "/register",
           ]
         }
-      />
-      <PublicOnlyRoute
-        component={[Function]}
-        path="/register"
       />
       <PrivateRoute
         component={[Function]}

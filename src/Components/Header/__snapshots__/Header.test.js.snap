@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders as expected 1`] = `
-<Fragment>
+<div
+  className="Header"
+>
   <div
-    className="Header"
+    className="header-container"
   >
     <header
       className="hero"
@@ -19,32 +21,7 @@ exports[`Header renders as expected 1`] = `
     </header>
     <nav
       className="user-controls"
-    >
-      <ul
-        className="user-links"
-      >
-        <li
-          className="user-link"
-        >
-          <NavLink
-            activeClassName="active-link"
-            to="/login"
-          >
-            Login
-          </NavLink>
-        </li>
-        <li
-          className="user-link"
-        >
-          <NavLink
-            activeClassName="active-link"
-            to="/register"
-          >
-            Register
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+    />
   </div>
-</Fragment>
+</div>
 `;
