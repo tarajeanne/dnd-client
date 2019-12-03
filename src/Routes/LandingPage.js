@@ -45,7 +45,10 @@ export default class LoginPage extends Component {
                 <h3 className="login-header">Login</h3>
                 <LoginForm onLoginSuccess={this.handleLoginSuccess} />
                 <p className="login-toggle">
-                  Login | <span className="login-link" onClick={this.handleClick}>Register</span>
+                  Login |{' '}
+                  <span className="login-link" onClick={this.handleClick}>
+                    Register
+                  </span>
                 </p>
               </div>
             )}
@@ -56,13 +59,18 @@ export default class LoginPage extends Component {
                   onRegistrationSuccess={this.handleRegistrationSuccess}
                 />
                 <p className="login-toggle">
-                  <span className="login-link" onClick={this.handleClick}>Login</span> | Register
+                  <span className="login-link" onClick={this.handleClick}>
+                    Login
+                  </span>{' '}
+                  | Register
                 </p>
               </div>
             )}
           </div>
           <div className="landing-page-info">
-            <h2 className="landing-header">Welcome to the Dungeons and Dragons Character Creator!</h2>
+            <h2 className="landing-header">
+              Welcome to the Dungeons and Dragons Character Creator!
+            </h2>
             <p>
               If you're new to Dungeons and Dragons and don't know where to
               start, have no fear! This app will guide you through the most
@@ -71,12 +79,20 @@ export default class LoginPage extends Component {
               than just a set of stats--it's a person, with a background, with
               values and flaws, that you will grow to love through your
               adventures.
+              </p>
               <p>
-            If you just want to try out the app, log in under the credentials:{' '}
-            <em className="error">username: <i>testuser</i></em> and <em className="error">password: <i>testuser</i></em>. Characters
-            under this account will be deleted occassionally.
-          </p>
-            </p>
+                If you just want to try out the app, log in under the
+                credentials:{' '}
+                <em className="error">
+                  username: <i>testuser</i>
+                </em>{' '}
+                and{' '}
+                <em className="error">
+                  password: <i>testuser</i>
+                </em>
+                . Characters under this account will be deleted occassionally.
+              </p>
+            
           </div>
         </section>
 
@@ -116,16 +132,20 @@ export default class LoginPage extends Component {
           </p>
           <p>
             As you and your party adventure through this land, you'll save
-            towns, get in barfights, defeat monsters, solve puzzles, and survive magical caves. Most importantly, you get the chance to strategize and laugh with your friends.
+            towns, get in barfights, defeat monsters, solve puzzles, and survive
+            magical caves. Most importantly, you get the chance to strategize
+            and laugh with your friends.
           </p>
 
           <h3>So what's this app for?</h3>
           <p>
-            You know that big nasty rulebook from the Vox video? Don't worry about it. This app will walk you through creating your character stress-free. With simplified descriptions and a straight-forward interface, you'll have a character created in no time. All you need is a Dungeon Master, some dice, and a sense of adventure.
+            You know that big nasty rulebook from the Vox video? Don't worry
+            about it. This app will walk you through creating your character
+            stress-free. With simplified descriptions and a straight-forward
+            interface, you'll have a character created in no time. All you need
+            is a Dungeon Master, some dice, and a sense of adventure.
           </p>
-          <p>
-            Happy character creating!
-          </p>
+          <p>Happy character creating!</p>
         </section>
       </div>
     );
