@@ -117,7 +117,7 @@ class CharacterSheet extends React.Component {
             ) && <span className="character-sheet-span" id="vision">Dark</span>}
             <ul id="check_prof_list">{skill_list}</ul>
             <div className="profs_langs">
-              <span className="character-sheet-span" className="language-title">Languages:</span>
+              <span className="language-title character-sheet-span">Languages:</span>
               <ul className="language-list">{languages}</ul>
               {otherProfs}
             </div>
