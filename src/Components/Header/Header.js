@@ -35,8 +35,8 @@ class Header extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="Header">
+      <div className="Header">
+        <div className="header-container">
           <header className="hero">
             <h1>DnD Character Creator</h1>
             <p className="sub">for Absolute Beginners</p>
@@ -45,7 +45,7 @@ class Header extends React.Component {
             {this.props.hasAuthToken ? this.renderUserLinks() : ''}
           </nav>
         </div>
-      </>
+      </div>
     );
   }
 }
