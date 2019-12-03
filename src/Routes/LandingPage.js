@@ -73,7 +73,7 @@ export default class LoginPage extends Component {
               adventures.
               <p>
             If you just want to try out the app, log in under the credentials:{' '}
-            <em className="error">username: <i>testuser</i></em><em className="error">password: <i>testuser</i></em>. Characters
+            <em className="error">username: <i>testuser</i></em> and <em className="error">password: <i>testuser</i></em>. Characters
             under this account will be deleted occassionally.
           </p>
             </p>
