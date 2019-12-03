@@ -13,7 +13,7 @@ class CharacterSheet extends React.Component {
         (check, index) => (
           <li key={index} className="skill_check">
             {skill_profs.includes(check) && (
-              <span className="prof_dot">&#8226;</span>
+              <span className="prof_dot character-sheet-span">&#8226;</span>
             )}
             {this.context.character.ability_checks[check].total}
           </li>
@@ -68,56 +68,56 @@ class CharacterSheet extends React.Component {
             background prints!
           </p>
           <div className="background-image">
-            <span id="name">{this.context.character.name}</span>
-            <span id="levelandclass">{this.context.character.class}</span>
-            <span id="race">{this.context.character.race}</span>
-            <span id="alignment">{this.context.character.alignment}</span>
-            <span id="background">{this.context.character.background}</span>
-            <span id="strengthtot">
+            <span className="character-sheet-span" id="name">{this.context.character.name}</span>
+            <span className="character-sheet-span" id="levelandclass">{this.context.character.class}</span>
+            <span className="character-sheet-span" id="race">{this.context.character.race}</span>
+            <span className="character-sheet-span" id="alignment">{this.context.character.alignment}</span>
+            <span className="character-sheet-span" id="background">{this.context.character.background}</span>
+            <span className="character-sheet-span" id="strengthtot">
               {this.context.character.abilities.strength.total}
             </span>
-            <span id="strengthmod">
+            <span className="character-sheet-span" id="strengthmod">
               {this.context.character.abilities.strength.mod}
             </span>
-            <span id="dexteritytot">
+            <span className="character-sheet-span" id="dexteritytot">
               {this.context.character.abilities.dexterity.total}
             </span>
-            <span id="dexteritymod">
+            <span className="character-sheet-span" id="dexteritymod">
               {this.context.character.abilities.dexterity.mod}
             </span>
-            <span id="constitutiontot">
+            <span className="character-sheet-span" id="constitutiontot">
               {this.context.character.abilities.constitution.total}
             </span>
-            <span id="constitutionmod">
+            <span className="character-sheet-span" id="constitutionmod">
               {this.context.character.abilities.constitution.mod}
             </span>
-            <span id="intelligencetot">
+            <span className="character-sheet-span" id="intelligencetot">
               {this.context.character.abilities.intelligence.total}
             </span>
-            <span id="intelligencemod">
+            <span className="character-sheet-span" id="intelligencemod">
               {this.context.character.abilities.intelligence.mod}
             </span>
-            <span id="wisdomtot">
+            <span className="character-sheet-span" id="wisdomtot">
               {this.context.character.abilities.wisdom.total}
             </span>
-            <span id="wisdommod">
+            <span className="character-sheet-span" id="wisdommod">
               {this.context.character.abilities.wisdom.mod}
             </span>
-            <span id="charismatot">
+            <span className="character-sheet-span" id="charismatot">
               {this.context.character.abilities.charisma.total}
             </span>
-            <span id="charismamod">
+            <span className="character-sheet-span" id="charismamod">
               {this.context.character.abilities.charisma.mod}
             </span>
-            <span id="prof_bonus">{this.context.character.prof_bonus}</span>
-            <span id="max_hp">{this.context.character.hp}</span>
-            <span id="speed">{this.context.character.speed}</span>
+            <span className="character-sheet-span" id="prof_bonus">{this.context.character.prof_bonus}</span>
+            <span className="character-sheet-span" id="max_hp">{this.context.character.hp}</span>
+            <span className="character-sheet-span" id="speed">{this.context.character.speed}</span>
             {this.context.character.other_prof.filter(
               (prof) => prof.name === 'Darkvision'
-            ) && <span id="vision">Dark</span>}
+            ) && <span className="character-sheet-span" id="vision">Dark</span>}
             <ul id="check_prof_list">{skill_list}</ul>
             <div className="profs_langs">
-              <span className="language-title">Languages:</span>
+              <span className="character-sheet-span" className="language-title">Languages:</span>
               <ul className="language-list">{languages}</ul>
               {otherProfs}
             </div>

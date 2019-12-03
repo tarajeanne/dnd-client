@@ -16,11 +16,11 @@ h2 {
   margin: 8px 0;
 }
 
-.LoginPage > p > a {
+.LoginPage > p > span {
   color: #e85b2c;
 }
 
-.LoginPage > p > a:hover {
+.LoginPage > p > span:hover {
   cursor: pointer;
   color: #ffbe00;
 }

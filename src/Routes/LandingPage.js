@@ -45,7 +45,7 @@ export default class LoginPage extends Component {
                 <h3 className="login-header">Login</h3>
                 <LoginForm onLoginSuccess={this.handleLoginSuccess} />
                 <p className="login-toggle">
-                  Login | <a onClick={this.handleClick}>Register</a>
+                  Login | <span className="login-link" onClick={this.handleClick}>Register</span>
                 </p>
               </div>
             )}
@@ -56,7 +56,7 @@ export default class LoginPage extends Component {
                   onRegistrationSuccess={this.handleRegistrationSuccess}
                 />
                 <p className="login-toggle">
-                  <a onClick={this.handleClick}>Login</a> | Register
+                  <span className="login-link" onClick={this.handleClick}>Login</span> | Register
                 </p>
               </div>
             )}
